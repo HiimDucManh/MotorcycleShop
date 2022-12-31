@@ -1,0 +1,27 @@
+﻿<Page x:Class="FinalProject.View.Customer.ImagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FinalProject.View.Customer"
+      mc:Ignorable="d" 
+      Title="ImagePage"
+      Style="{StaticResource Page_Style_RightLeft}">
+
+    <Border>
+        <Border.Background>
+            <ImageBrush x:Name="ImgSP"
+                                        ImageSource="/Assets/Avatars/Image.png"
+                                        Stretch="Uniform">
+                <ImageBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="-1"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Border.Background>
+    </Border>
+</Page>

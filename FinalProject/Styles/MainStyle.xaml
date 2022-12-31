@@ -1,0 +1,938 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Start: Button | Minimize | Maximize | Close -->
+    <Style x:Key="IconButtonsStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="bd" CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Path Name="ico" Data="{TemplateBinding Content}" Fill="{DynamicResource ActionIconColor}" Height="10" Width="10" Stretch="Uniform"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="Tag" Value="IsCloseButton"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="#F72626"/>
+                            <Setter TargetName="ico" Property="Fill" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ico" Property="Fill" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- End: Button | Minimize | Maximize | Close -->
+
+    <!-- Start: Menu Icon -->
+    <Style x:Key="MenuIconStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <Viewbox Height="20" Width="20" Margin="0 6 0 0" Stretch="UniformToFill">
+                            <Canvas Height="512" Width="512">
+                                <Path x:Name="ico" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="{DynamicResource PrimaryGrayColor}" Margin="0 0 0 0"/>
+                                <Path x:Name="ico1" Data="m32 128h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="{DynamicResource PrimaryGrayColor}" Margin="0 20 0 0"/>
+                                <Path x:Name="ico2" Data="m32 256h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="{DynamicResource PrimaryGrayColor}" Margin="0 40 0 0"/>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
+                            <Setter Property="Fill" TargetName="ico" Value="{DynamicResource PrimaryBlueTextColor}"/>
+                            <Setter Property="Fill" TargetName="ico1" Value="{DynamicResource PrimaryBlueTextColor}"/>
+                            <Setter Property="Fill" TargetName="ico2" Value="{DynamicResource PrimaryBlueTextColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToggleBarStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <Viewbox Height="20" Width="20" Margin="0 6 0 0" Stretch="Uniform">
+                            <Path x:Name="icon"
+                                  Data="{DynamicResource bars}" 
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Margin="0 0 0 0"/>
+                        </Viewbox>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Data" TargetName="icon" Value="{DynamicResource xmark}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Data" TargetName="icon" Value="{DynamicResource bars}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- End: Menu Icon -->
+
+    <!-- Start: Vertical Menu Style -->
+    <Style x:Key="MenuRadioButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="menuButton"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Selected  -->
+                            <Border x:Name="btnSelected" Grid.ColumnSpan="2"  CornerRadius="4" Width="210" HorizontalAlignment="Right"/>
+
+                            <!-- Indicator -->
+                            <Rectangle Name="Indicator" HorizontalAlignment="Left" Width="4" Height="40" VerticalAlignment="Center" RadiusX="2" RadiusY="2"/>
+
+                            <!-- Icon -->
+                            <Path x:Name="Icon" Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}" Height="24" Width="24" Stretch="None" Fill="{DynamicResource PrimaryGrayColor}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+
+                            <!-- Text -->
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryRedColor}"/>
+                            <!-- Optional 
+                            <Setter TargetName="Indicator" Property="Fill" Value="red"/>
+                            <Setter TargetName="Indicator" Property="Height" Value="20"/>-->
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter TargetName="Indicator" Property="Fill" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter TargetName="Indicator" Property="Height" Value="20"/>
+                            <Setter TargetName="btnSelected" Property="Background" Value="{DynamicResource SecundaryGrayColor}"/>
+                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- End: Vertical Menu Style -->
+
+    <!--Start: Button Style-->
+    <Style x:Key="MyPrimaryButtonIconRightStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource SecundaryRedColor}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background='{DynamicResource SecundaryRedColor}'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 10 0"
+                                                Grid.Column="0" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+
+                            <Path x:Name="Icon" Grid.Column="1"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="16" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryRedColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                  Margin="0 0 10 0"/>
+
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource PrimaryGrayColor}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource ActionIconColor}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MyPrimaryButtonIconLeftStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource SecundaryRedColor}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background='{DynamicResource SecundaryRedColor}'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Path x:Name="Icon" Grid.Column="0"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="16" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryRedColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                  Margin="10 0 10 0"/>
+
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 0 10 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource PrimaryGrayColor}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource ActionIconColor}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonIconStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="50"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Path x:Name="Icon"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="16" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Fill"
+                                    Value="{DynamicResource PrimaryRedColor}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonIconLeftStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background="Transparent"
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Path x:Name="Icon" Grid.Column="0"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="16" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                  Margin="10 0 10 0"/>
+
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 0 10 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Fill"
+                                    Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter TargetName="txtName" Property="Foreground"
+                                    Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonHomeStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="btnBorder" CornerRadius="50"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonExpanderStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="btnBorder" CornerRadius="50"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+
+                            <Path x:Name="icon"
+                                  Height="7" Width="auto" Stretch="Uniform"
+                                  Data="{DynamicResource sort-down}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                  Margin="7 5 0 0"/>
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Data" TargetName="icon" Value="{DynamicResource sort-up}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Data" TargetName="icon" Value="{DynamicResource sort-down}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonShoppingIconRightStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource SecundaryRedColor}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background='{DynamicResource SecundaryRedColor}'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Grid HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="txtName1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 10 0"
+                                       Visibility="Collapsed"
+                                       Grid.Column="0" Text="Go to shop" Foreground="{TemplateBinding Foreground}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       FontSize="{TemplateBinding FontSize}"/>
+                            <Path x:Name="Icon" Grid.Column="1"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="16" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryRedColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                  Margin="10 0 10 0"/>
+                            <TextBlock x:Name="txtName2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 10 0"
+                                       Visibility="Visible"
+                                       Grid.Column="2" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       FontSize="{TemplateBinding FontSize}"/>
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter TargetName="txtName2" Property="Visibility"
+                                    Value="Collapsed"/>
+                            <Setter TargetName="txtName1" Property="Visibility"
+                                    Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource ActionIconColor}"/>
+                            <Setter TargetName="txtName2" Property="Visibility"
+                                    Value="Collapsed"/>
+                            <Setter TargetName="txtName1" Property="Visibility"
+                                    Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonLogoutStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border x:Name="btnBorder" CornerRadius="10"
+                                    Background='Transparent'
+                                    Padding="7">
+                                <Path x:Name="icon"
+                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Data="{DynamicResource logout}"
+                                  Fill="{DynamicResource PrimaryRedColor}" 
+                                  VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock x:Name="txtName" VerticalAlignment="Center"
+                                       Margin="10 0 0 0"
+                                  Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryRedColor}"
+                                  FontWeight="{TemplateBinding FontWeight}"
+                                  FontSize="{TemplateBinding FontSize}"/>
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btnBorder" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonTextStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock x:Name="txtName" VerticalAlignment="Center"                                      
+                                  Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                  FontWeight="{TemplateBinding FontWeight}"
+                                  FontSize="{TemplateBinding FontSize}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--End: Button Style-->
+
+    <!--Start: Page Style-->
+    <Style x:Key="Page_Style_BottomTop"
+           TargetType="{x:Type Page}">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="0"
+                                    Y="50" />
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="Visibility"
+                     Value="Collapsed">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Trigger>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         Duration="0:0:1"
+                                         From="0"
+                                         To="1" />
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                         From="50"
+                                         To="0"
+                                         Duration="0:0:0.8"
+                                         DecelerationRatio="0.6" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="Page_Style_RightLeft"
+           TargetType="{x:Type Page}">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="50"
+                                    Y="0" />
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="Visibility"
+                     Value="Collapsed">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Trigger>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         Duration="0:0:1"
+                                         From="0"
+                                         To="1" />
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                         From="50"
+                                         To="0"
+                                         Duration="0:0:0.8"
+                                         DecelerationRatio="0.6" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <!--End: Page Style-->
+
+    <!--Start: Radio Button Style-->
+    <Style x:Key="RadioMenuButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="btnBorder" CornerRadius="15"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            <Path x:Name="icon1"
+                                  Height="7" Width="auto" Stretch="Uniform"
+                                  Data="{DynamicResource angles-down}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" 
+                                  Margin="5 5 10 0"/>
+
+                            <Path x:Name="icon2"
+                                  Height="7" Width="auto" Stretch="Uniform"
+                                  Data="{DynamicResource angles-up}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" 
+                                  Margin="5 5 10 0"/>
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Fill" TargetName="icon1" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Fill" TargetName="icon2" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Fill" TargetName="icon1" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Fill" TargetName="icon2" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Visibility" TargetName="icon1" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="icon2" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Fill" TargetName="icon1" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Fill" TargetName="icon2" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Visibility" TargetName="icon1" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="icon2" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RadioLightDarkButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="btnBorder" CornerRadius="20"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <Path x:Name="icon"
+                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="btnBorder" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Background" TargetName="btnBorder" Value="Transparent"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="btnBorder" CornerRadius="12"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <Path x:Name="icon"
+                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" 
+                                  Margin="5 0 10 0"/>
+
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btnBorder" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="btnBorder" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Background" TargetName="btnBorder" Value="Transparent"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RadioMenuButtonHomeStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryGrayColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="btnBorder" CornerRadius="50"
+                            Background='Transparent'
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <Path x:Name="icon"
+                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
+                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" 
+                                  Margin="5 0 10 0"/>
+                            
+                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            
+                        </StackPanel>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btnBorder" Value="Transparent"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryRedColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--End: Radio Button Style-->
+
+    <!--Start: List Radio Button Style-->
+    <Style x:Key="ProducersRadioButtonList" TargetType="{x:Type ListView}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="MinWidth" Value="120"/>
+        <Setter Property="MinHeight" Value="95"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListView">
+                    <Border Name="Border" Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="2">
+                        <ScrollViewer Margin="0" Focusable="false">
+                            <StackPanel Margin="2" IsItemsHost="True" />
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Border" Property="Background"
+                                Value="Transparent" />
+                            <Setter TargetName="Border" Property="BorderBrush"
+                                Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <!--End: List Radio Button Style-->
+
+    <!--Start: Toggle Button Style-->
+    <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="btnBorder" CornerRadius="50"
+                            Background="Transparent"
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Path x:Name="Icon"
+                                  Data="{StaticResource heart-regular}" 
+                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource PrimaryRedColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Data" Value="{StaticResource heart-solid}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="Icon" Property="Data" Value="{StaticResource heart-regular}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Data" Value="{StaticResource heart-solid}"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryGrayColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--End: Toggle Button Style-->
+</ResourceDictionary>

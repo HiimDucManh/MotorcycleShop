@@ -16,9 +16,7 @@
     <Border CornerRadius="12">
         <Border.Background>
             <ImageBrush ImageSource="/Images/LogIn.png"
-                        Stretch="Fill"       
-                        
-                        >
+                        Stretch="Fill">
 
             </ImageBrush>
         </Border.Background>
