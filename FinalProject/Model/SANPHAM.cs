@@ -18,7 +18,6 @@ namespace FinalProject.Model
         public SANPHAM()
         {
             this.CHITIETSANPHAMs = new HashSet<CHITIETSANPHAM>();
-            this.HOADONBTs = new HashSet<HOADONBT>();
             this.HOADONMHs = new HashSet<HOADONMH>();
         }
     
@@ -37,8 +36,6 @@ namespace FinalProject.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETSANPHAM> CHITIETSANPHAMs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADONBT> HOADONBTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADONMH> HOADONMHs { get; set; }
         public virtual LOAISP LOAISP { get; set; }

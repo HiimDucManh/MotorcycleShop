@@ -17,6 +17,7 @@ namespace FinalProject.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHUYENMAI()
         {
+            this.CHITIETKHUYENMAIs = new HashSet<CHITIETKHUYENMAI>();
             this.HOADONMHs = new HashSet<HOADONMH>();
         }
     
@@ -26,6 +27,8 @@ namespace FinalProject.Model
         public Nullable<System.DateTime> NGAYBATDAU { get; set; }
         public Nullable<System.DateTime> NGAYKETTHUC { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETKHUYENMAI> CHITIETKHUYENMAIs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADONMH> HOADONMHs { get; set; }
     }

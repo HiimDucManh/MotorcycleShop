@@ -27,6 +27,7 @@ namespace FinalProject.Model
         public string TAIKHOANNV { get; set; }
         public Nullable<System.DateTime> NGAYSINH { get; set; }
         public string GIOITINH { get; set; }
+        public string EMAIL { get; set; }
         public string SDT { get; set; }
         public string DIACHI { get; set; }
         public Nullable<System.DateTime> NGAYVAOLAM { get; set; }

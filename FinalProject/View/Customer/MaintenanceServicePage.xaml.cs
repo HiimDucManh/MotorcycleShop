@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,22 @@ using System.Windows.Shapes;
 
 namespace FinalProject.View.Customer
 {
-    /// <summary>
-    /// Interaction logic for MaintenanceServicePage.xaml
-    /// </summary>
     public partial class MaintenanceServicePage : Page
     {
-        public MaintenanceServicePage()
+        KHACHHANG khachhang;
+        public MaintenanceServicePage(KHACHHANG kh)
         {
             InitializeComponent();
+            khachhang = kh;
+            tbName.Text = khachhang.HOKH + " " + khachhang.TENKH;
+            tbPhone.Text = khachhang.SDT;
+            tbEmail.Text = khachhang.EMAIL;
+            tbAddress.Text = khachhang.DIACHI;
+        }
+
+        private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

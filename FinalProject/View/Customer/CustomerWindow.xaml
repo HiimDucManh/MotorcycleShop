@@ -12,7 +12,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         ResizeMode="NoResize" WindowState="Normal">
-    <Grid Background="Transparent">
+    <Grid>
         <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
             <Grid>
                 <Grid.OpacityMask>
@@ -49,8 +49,8 @@
                 <StackPanel Grid.Row="0" Orientation="Horizontal" 
                         HorizontalAlignment="Left" VerticalAlignment="Top"
                         Margin="30 10">
-                    <Path Data="{DynamicResource logo}" Stretch="Fill" Fill="{DynamicResource PrimaryBlueTextColor}" Width="25" Height="25" HorizontalAlignment="Left"/>
-                    <Label x:Name="lb" Content="Orizon" Foreground="{DynamicResource PrimaryBlueTextColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
+                    <Path Data="{DynamicResource motorbike}" Stretch="Uniform" Fill="{DynamicResource PrimaryRedColor}" Width="auto" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label x:Name="lb" Content="DUCATI" Foreground="{DynamicResource PrimaryRedColor}" FontWeight="ExtraBold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
                 </StackPanel>
                 <!-- End: Logo -->
 
@@ -116,27 +116,13 @@
                             </Ellipse.Fill>
                         </Ellipse>
 
-                        <StackPanel VerticalAlignment="Top" 
-                                    HorizontalAlignment="Right"
-                                    Grid.Column="2"
-                                    Orientation="Horizontal"
-                                    Margin="10 0" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp">
-                            <StackPanel Orientation="Vertical" Margin="8 0 0 0">
-                                <Label Content="Scarlett Gwen" 
-                                       Foreground="{DynamicResource TextPrimaryColor}" 
-                                       FontSize="14" FontWeight="SemiBold" 
-                                       HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
-                                <Label Content="scarlettgwen@gmail.com" 
-                                       Foreground="{DynamicResource PrimaryGrayColor}" 
-                                       FontSize="11" FontWeight="Regular" 
-                                       HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0 -10 0 0"/>
-                            </StackPanel>
-                            <Ellipse Width="30" Height="30" Margin="10 0 0 0">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="/Assets/Avatars/avatar-2.jpg"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </StackPanel>
+                        <Button x:Name="btnSetting"
+                                Grid.Column="2"
+                                Style="{DynamicResource ButtonIconStyle}"
+                                Tag="{DynamicResource Settings}"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Margin="15 0" Click="btnSetting_Click"/>
                     </Grid>
 
                     <StackPanel Grid.Row="1"

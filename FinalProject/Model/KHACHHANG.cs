@@ -25,8 +25,9 @@ namespace FinalProject.Model
         public string TENKH { get; set; }
         public string HOKH { get; set; }
         public string TAIKHOANKH { get; set; }
-        public System.DateTime NGAYSINH { get; set; }
+        public Nullable<System.DateTime> NGAYSINH { get; set; }
         public string GIOITINH { get; set; }
+        public string EMAIL { get; set; }
         public string SDT { get; set; }
         public string DIACHI { get; set; }
         public Nullable<System.DateTime> NGAYDANGKY { get; set; }

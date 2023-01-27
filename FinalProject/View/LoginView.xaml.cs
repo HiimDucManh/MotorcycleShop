@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalProject.Model;
+using FinalProject.View.Customer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,7 @@ namespace FinalProject.View
         public LoginView()
         {
             InitializeComponent();
+            tblLogin.Text = string.Empty;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -76,6 +79,37 @@ namespace FinalProject.View
             //brush.ImageSource = temp;
 
             btnClose.Background = Brushes.Transparent;
+        }
+
+        private void btnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            NGUOIDUNG nd = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == txbUsername.Text).FirstOrDefault();
+            if (nd != null)
+            {
+                if(nd.MATKHAU == txbPass.Password && nd.LOAIND == 1)
+                {
+                    KHACHHANG khachhang = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == txbUsername.Text).First();
+                    CustomerWindow wd = new CustomerWindow(khachhang);
+                    wd.Show();
+                    this.Close();
+                }
+                if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 0)
+                {
+                    
+                }
+                if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 2)
+                {
+                    
+                }
+                else
+                {                    
+                    tblLogin.Text = "*Wrong password!";
+                }
+            }
+            else
+            {
+                tblLogin.Text = "*Account does not exist!";
+            }
         }
     }
 }

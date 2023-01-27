@@ -12,18 +12,13 @@ namespace FinalProject.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class HOADONBT
+    public partial class CHITIETKHUYENMAI
     {
-        public string MAHDBT { get; set; }
-        public Nullable<System.DateTime> NGAYHDBT { get; set; }
-        public string MALOAISPBT { get; set; }
-        public string MAKHBT { get; set; }
-        public string MANVBT { get; set; }
-        public Nullable<decimal> SOTIENPHAITRA { get; set; }
-        public string GHICHU { get; set; }
+        public string MAKM { get; set; }
+        public string MALOAISPKM { get; set; }
+        public Nullable<bool> TRANGTHAI { get; set; }
     
-        public virtual KHACHHANG KHACHHANG { get; set; }
+        public virtual KHUYENMAI KHUYENMAI { get; set; }
         public virtual LOAISP LOAISP { get; set; }
-        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }
