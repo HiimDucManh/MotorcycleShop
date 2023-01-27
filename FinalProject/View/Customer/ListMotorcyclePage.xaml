@@ -109,37 +109,63 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Margin="10 0">
-                    <Rectangle RadiusX="10" RadiusY="10">
+                    <!--<Rectangle RadiusX="10" RadiusY="10">
                         <Rectangle.Fill>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="{DynamicResource PrimaryBackground}" Offset="0.0" />
-                                <GradientStop Color="{DynamicResource SecundaryBackground}" Offset="0.4" />
-                                <GradientStop Color="{DynamicResource SecundaryBackground}" Offset="0.7" />
-                                <GradientStop Color="{DynamicResource PrimaryBackground}" Offset="1.0" />
+                                <GradientStop Color="{DynamicResource SecundaryBackground}" Offset="0.6" />
+                                <GradientStop Color="{DynamicResource PrimaryBackground}" Offset="1" />
                             </LinearGradientBrush>
                         </Rectangle.Fill>
-                    </Rectangle>
+                    </Rectangle>-->
 
-                    <Image Source="/Assets/Layout/Sale.png" 
-                           Stretch="Uniform"
+                    <Image Source="/Assets/Layout/Event.jpg" 
+                           Stretch="UniformToFill"
                            HorizontalAlignment="Right"
-                           VerticalAlignment="Bottom"/>
+                           VerticalAlignment="Top"/>
 
-                    <Grid Grid.Column="0" Margin="40">
+                    <Grid Grid.Column="0" Margin="30 40 0 0">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Salse up to 60% on motorcycles"
+                            <TextBlock x:Name="tblTenKM"
+                                       Text="Tên"
+                                       Foreground="{DynamicResource PrimaryRedColor}"
+                                       FontSize="30"
+                                       FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Sales up to "
                                        Foreground="White"
                                        FontSize="25"
+                                       FontWeight="Bold" VerticalAlignment="Bottom"/>
+                                <TextBlock x:Name="tblPhanTram" Text="60"
+                                       Foreground="White"
+                                       FontSize="27"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="24/1/2022 - 24/2/2022"
+                                <TextBlock Text="%"
+                                       Foreground="White"
+                                       FontSize="27"
+                                       FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="tblNgayBD" Text="24/1/2023"
                                        FontSize="15"
                                        Foreground="White"
                                        Margin="0 10 0 15"/>
-                            <Button Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
-                                    Content="See Detail"
-                                    Padding="8"
+                                <TextBlock Text=" - "
+                                       FontSize="15"
+                                       Foreground="White"
+                                       Margin="0 10 0 15"/>
+                                <TextBlock x:Name="tblNgayKT" Text="24/2/2023"
+                                       FontSize="15"
+                                       Foreground="White"
+                                       Margin="0 10 0 15"/>
+                            </StackPanel>
+                            <Button Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
+                                    Content="Other"
                                     HorizontalAlignment="Left"
-                                    Width="110"/>
+                                    Width="90" Click="Button_Click"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -177,9 +203,11 @@
                                        Foreground="White"
                                        Margin="0 4 0 15"/>
                             <Button Name="btnDiavel"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Left"
                                     Width="110" Click="btnDiavel_Click"/>
                         </StackPanel>
@@ -269,9 +297,11 @@
                                        Margin="0 0 0 25"/>
                             
                             <Button x:Name="btnXDiavel"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Right"
                                     Width="110" Click="btnXDiavel_Click"/>
                         </StackPanel>
@@ -362,9 +392,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnHyper"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Left"
                                     Width="110" Click="btnHyper_Click"/>
                         </StackPanel>
@@ -454,9 +486,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnMonster"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Right"
                                     Width="110" Click="btnMonster_Click"/>
                         </StackPanel>
@@ -537,9 +571,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnStreet"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Left"
                                     Width="110" Click="btnStreet_Click"/>
                         </StackPanel>
@@ -624,9 +660,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnMultistrada"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Right"
                                     Width="110" Click="btnMultistrada_Click"/>
                         </StackPanel>
@@ -711,9 +749,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnPanigale"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Left"
                                     Width="110" Click="btnPanigale_Click"/>
                         </StackPanel>
@@ -798,9 +838,11 @@
                                        Margin="0 0 0 25"/>
 
                             <Button x:Name="btnSupersprot"
-                                    Style="{DynamicResource MyPrimaryButtonIconLeftStyle}"
+                                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                    Background="{DynamicResource PrimaryRedColor}"
+                                    BorderBrush="{x:Null}"
                                     Content="See Detail"
-                                    Padding="8"
                                     HorizontalAlignment="Right"
                                     Width="110" Click="btnSupersprot_Click"/>
                         </StackPanel>

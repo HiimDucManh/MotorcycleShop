@@ -5,21 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1765351e52c14d74bd65ba1a3f1ab0a5" Name="Diagram1" ZoomLevel="116">
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" Width="1.5" PointX="8.25" PointY="5.25" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.HOADONBT" Width="1.5" PointX="5.25" PointY="0.875" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.HOADONMH" Width="1.5" PointX="5.25" PointY="4.5" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.KHACHHANG" Width="1.5" PointX="3" PointY="14.25" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.KHUYENMAI" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.LOAISP" Width="1.5" PointX="0.75" PointY="5.25" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.MAU" Width="1.5" PointX="6" PointY="9.375" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.NGUOIDUNG" Width="1.5" PointX="0.75" PointY="15.125" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.NHANVIEN" Width="1.5" PointX="3" PointY="9.75" />
-        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.SANPHAM" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" Width="1.5" PointX="8.25" PointY="9.75" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.HOADONBT" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.HOADONMH" Width="1.5" PointX="5.25" PointY="9" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.KHACHHANG" Width="1.5" PointX="3.75" PointY="14.375" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.KHUYENMAI" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.LOAISP" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.MAU" Width="1.5" PointX="6" PointY="14" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.NGUOIDUNG" Width="1.5" PointX="1.5" PointY="15.375" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.NHANVIEN" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MOTORBIKEMANAGEMENTModel.SANPHAM" Width="1.5" PointX="3" PointY="8.875" />
+        <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MAKM_MAKM" />
+        <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MALOAISPKM_MALOAI" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MASP" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MAKHBT" />
+        <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MALOAISPBT" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MANVBT" />
-        <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MASPBT" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MAKHMH" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MAKM" />
         <AssociationConnector Association="MOTORBIKEMANAGEMENTModel.FK_MANVMH" />

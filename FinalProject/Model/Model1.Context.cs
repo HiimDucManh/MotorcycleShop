@@ -25,6 +25,7 @@ namespace FinalProject.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CHITIETKHUYENMAI> CHITIETKHUYENMAIs { get; set; }
         public virtual DbSet<CHITIETSANPHAM> CHITIETSANPHAMs { get; set; }
         public virtual DbSet<HOADONBT> HOADONBTs { get; set; }
         public virtual DbSet<HOADONMH> HOADONMHs { get; set; }

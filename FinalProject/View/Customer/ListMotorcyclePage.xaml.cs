@@ -1,6 +1,7 @@
 ﻿using FinalProject.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,14 +17,24 @@ using System.Windows.Shapes;
 
 namespace FinalProject.View.Customer
 {
-    /// <summary>
-    /// Interaction logic for ListMotorcyclePage.xaml
-    /// </summary>
     public partial class ListMotorcyclePage : Page
     {
-        public ListMotorcyclePage()
+        KHACHHANG khachhang;
+
+        public ListMotorcyclePage(KHACHHANG kh)
         {
             InitializeComponent();
+            khachhang= kh;
+
+            KHUYENMAI khuyenmai = DataProvider.Ins.DB.KHUYENMAIs.Where(x => x.NGAYBATDAU <= DateTime.Now && x.NGAYKETTHUC >= DateTime.Now).First();
+            tblTenKM.Text = khuyenmai.TENKM;
+            tblPhanTram.Text = khuyenmai.PHANTRAMKM.ToString();
+            CultureInfo viVn = new CultureInfo("vi-VN");
+            DateTime bd = khuyenmai.NGAYBATDAU.GetValueOrDefault();
+            tblNgayBD.Text = bd.ToString("d", viVn);
+            DateTime kt = khuyenmai.NGAYKETTHUC.GetValueOrDefault();
+            tblNgayKT.Text = kt.ToString("d", viVn);
+
 
             List<SANPHAM> listProductDIA = DataProvider.Ins.DB.SANPHAMs.Where(x => x.MALOAISP == "DIA").ToList();
             List<CHITIETSANPHAM> listDIA = getProductInModel(listProductDIA);           
@@ -79,42 +90,48 @@ namespace FinalProject.View.Customer
 
         private void btnDiavel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("DIA"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "DIA"));
         }
 
         private void btnXDiavel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("XDI"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "XDI"));
         }
 
         private void btnHyper_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("HYP"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "HYP"));
         }
 
         private void btnMonster_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("MON"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "MON"));
         }
 
         private void btnStreet_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("STR"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "STR"));
         }
 
         private void btnMultistrada_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("MUL"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "MUL"));
         }
 
         private void btnPanigale_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("PAN"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "PAN"));
         }
 
         private void btnSupersprot_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DetailMotorcyclePage("SUP"));
+            NavigationService.Navigate(new DetailMotorcyclePage(khachhang, "SUP"));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DetailEventWindow wd = new DetailEventWindow();
+            wd.ShowDialog();
         }
     }
 }

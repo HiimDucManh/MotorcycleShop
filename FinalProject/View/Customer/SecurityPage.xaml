@@ -4,11 +4,156 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FinalProject.View.Customer"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SecurityPage">
+      Title="SecurityPage"
+      Style="{DynamicResource Page_Style_RightLeft}">
 
-    <Grid>
-        
-    </Grid>
+    <Border CornerRadius="5">
+        <materialDesign:Card 
+                  Background="{DynamicResource PrimaryBackgroundColor}"
+                  VerticalAlignment="Top"
+                  materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid Margin="10">
+                <TextBlock Text="Security" 
+                  FontSize="21"
+                  FontWeight="Bold"
+                  Foreground="{DynamicResource TextSecundaryColor}"/>
+                <Grid Margin="0 40 0 0" VerticalAlignment="Bottom">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="15 0">
+                        <TextBlock Text="Current password" Margin="10 5 10 -5"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource TextSecundaryColor}"/>
+                        <PasswordBox x:Name="tbCurrentPass" HorizontalAlignment="Left"                  
+                                Margin="10 10 10 0" Padding="10" 
+                                 Width="500"
+                                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.IsFloating="False">
+                            <PasswordBox.Resources>
+                                <Style TargetType="{x:Type materialDesign:SmartHint}">
+                                    <Setter Property="FontWeight" Value="DemiBold" />
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
+                        <TextBlock x:Name="tblCheckCurrentPass"
+                               Text="*" Margin="10 0 10 0"
+                               FontWeight="Bold"
+                               Foreground="Red"
+                               FontStyle="Italic"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="15 0" Grid.Row="1">
+                        <TextBlock Text="New password" Margin="10 5 10 -5"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource TextSecundaryColor}"/>
+                        <PasswordBox x:Name="tbNewPass" HorizontalAlignment="Left"                  
+                                Margin="10" Padding="10" 
+                                 Width="500"
+                                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.IsFloating="False">
+                            <PasswordBox.Resources>
+                                <Style TargetType="{x:Type materialDesign:SmartHint}">
+                                    <Setter Property="FontWeight" Value="DemiBold" />
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
+                    </StackPanel>
+
+                    <StackPanel Margin="15 0" Grid.Row="2">
+                        <TextBlock Text="Confirm password" Margin="10 10 10 -5"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource TextSecundaryColor}"/>
+                        <PasswordBox x:Name="tbConfirmPass" HorizontalAlignment="Left"                  
+                                Margin="10 10 10 0" Padding="10" 
+                                 Width="500"
+                                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}"
+                                materialDesign:HintAssist.IsFloating="False">
+                            <PasswordBox.Resources>
+                                <Style TargetType="{x:Type materialDesign:SmartHint}">
+                                    <Setter Property="FontWeight" Value="DemiBold" />
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
+                        <TextBlock x:Name="tblCheckConfirmPass"
+                               Text="*" Margin="10 0 10 0"
+                               FontWeight="Bold"
+                               Foreground="Red"
+                               FontStyle="Italic"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="15 0" Grid.Row="3">
+                        <TextBlock Text="Verification code" Margin="10 5 10 -5"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource TextSecundaryColor}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="tbCode" HorizontalAlignment="Stretch"                  
+                                        Margin="10 10 10 0" Padding="10"
+                                        Width="150"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                                        materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}"
+                                        materialDesign:HintAssist.Hint="123456"
+                                        materialDesign:HintAssist.IsFloating="False" PreviewTextInput="tbCode_PreviewTextInput">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type materialDesign:SmartHint}">
+                                        <Setter Property="FontWeight"
+                                                Value="DemiBold" />
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button x:Name="btnSendCode" VerticalAlignment="Center" Margin="10 10 10 0"
+                                    Style="{DynamicResource MaterialDesignFlatAccentButton}"
+                                    Foreground="{DynamicResource PrimaryRedColor}"
+                                    materialDesign:RippleAssist.Feedback="{DynamicResource PrimaryRedColor}"
+                                    Content="Send code" Click="btnSendCode_Click"/>
+
+                            <Button x:Name="btnResendCode" Visibility="Collapsed" VerticalAlignment="Center" Margin="10 10 10 0"
+                                    Style="{DynamicResource MaterialDesignFlatAccentButton}"
+                                    Foreground="{DynamicResource PrimaryRedColor}"
+                                    materialDesign:RippleAssist.Feedback="{DynamicResource PrimaryRedColor}"
+                                    Content="Resend" Click="btnResendCode_Click"/>
+                        </StackPanel>
+                        <TextBlock x:Name="tblCheckCode"
+                               Text="*" Margin="10 0 10 0"
+                               FontWeight="Bold"
+                               Foreground="Red"
+                               FontStyle="Italic"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                                Grid.Row="4"
+                            Margin="0 -12 20 10">
+                        <Button x:Name="btnCancel" 
+                                Style="{DynamicResource MaterialDesignFlatLightButton}"
+                                Foreground="{DynamicResource TextSecundaryColor}"
+                                materialDesign:RippleAssist.Feedback="{DynamicResource PrimaryRedColor}"                       
+                                Content="Cancel" Click="btnCancel_Click"/>
+                        <Button x:Name="btnSave" 
+                                Style="{DynamicResource MaterialDesignRaisedButton}"
+                                Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                                Background="{DynamicResource PrimaryRedColor}"
+                                BorderBrush="{x:Null}"
+                                Content="Save"
+                                Margin="10 0" Click="btnSave_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+    </Border>
 </Page>

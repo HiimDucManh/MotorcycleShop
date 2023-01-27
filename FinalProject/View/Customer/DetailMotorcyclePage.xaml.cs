@@ -1,4 +1,5 @@
-﻿using FinalProject.Model;
+﻿using ControlzEx.Standard;
+using FinalProject.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,15 +26,15 @@ using ToastNotifications.Position;
 
 namespace FinalProject.View.Customer
 {
-    /// <summary>
-    /// Interaction logic for DetailMotorcyclePage.xaml
-    /// </summary>
     public partial class DetailMotorcyclePage : Page
     {
-        CHITIETSANPHAM CTSP = new CHITIETSANPHAM();
-        public DetailMotorcyclePage(string model)
+        KHACHHANG khachhang;
+        CHITIETSANPHAM CTSP;
+        decimal? km;
+        public DetailMotorcyclePage(KHACHHANG kh, string model)
         {
             InitializeComponent();
+            khachhang = kh;
 
             if (model == "DIA")
             {
@@ -95,7 +96,7 @@ namespace FinalProject.View.Customer
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListMotorcyclePage());
+            NavigationService.Navigate(new ListMotorcyclePage(khachhang));
         }
 
         private void listviewProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -187,6 +188,7 @@ namespace FinalProject.View.Customer
                     getDetailColorMoto(m);
 
                     CHITIETSANPHAM ctsp = DataProvider.Ins.DB.CHITIETSANPHAMs.Where(x => x.MAMAUSP == m.MAMAU && x.SANPHAM.LOAISP.TENLOAI == tblNameModel.Text).First();
+                    CTSP = ctsp;
                     loadBill(ctsp);
                 }
                 else
@@ -275,6 +277,23 @@ namespace FinalProject.View.Customer
             gridCreateBill.RenderTransform.BeginAnimation(TranslateTransform.XProperty, da1);
 
             gridCreateBill.Visibility = Visibility.Visible;
+            tbName.Text = khachhang.HOKH + " " + khachhang.TENKH;
+            tbPhone.Text = khachhang.SDT;
+            tbAddress.Text = khachhang.DIACHI;
+            tbEmail.Text = khachhang.EMAIL;
+
+            int v = DataProvider.Ins.DB.HOADONMHs.Count();
+            if(v == 0)
+            {
+                tblMaHD.Text = "HD1";
+            }    
+            else
+            {
+                List<HOADONMH> listMH = DataProvider.Ins.DB.HOADONMHs.ToList();
+                HOADONMH hdmh = listMH[v - 1];
+                string mahd = hdmh.MAHDMH.Substring(2);
+                tblMaHD.Text = "HD" + (Int32.Parse(mahd) + 1);
+            }    
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -312,7 +331,65 @@ namespace FinalProject.View.Customer
             gridDetail.BeginAnimation(OpacityProperty, da);
             gridDetail.IsEnabled = true;
 
+            if(decimal.Parse(tbPrice.Text) == CTSP.SANPHAM.GIABAN)
+            {
+                HOADONMH hdmh = new HOADONMH()
+                {
+                    MAHDMH = tblMaHD.Text,
+                    NGAYHDMH = DateTime.Now,
+                    MASPMH = CTSP.MASP,
+                    MAKHMH = khachhang.MAKH,
+                    MANVMH = null,
+                    LOAITHANHTOAN = convertPayment(cbbPayment.SelectedIndex),
+                    TONGTIEN = CTSP.SANPHAM.GIABAN,
+                    MAKM = null,
+                    SOTIENKM = null,
+                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text)
+                };
+                DataProvider.Ins.DB.HOADONMHs.Add(hdmh);
+            }
+            else
+            {
+                HOADONMH hdmh = new HOADONMH()
+                {
+                    MAHDMH = tblMaHD.Text,
+                    NGAYHDMH = DateTime.Now,
+                    MASPMH = CTSP.MASP,
+                    MAKHMH = khachhang.MAKH,
+                    MANVMH = null,
+                    TONGTIEN = CTSP.SANPHAM.GIABAN,
+                    MAKM = tbCode.Text,
+                    SOTIENKM = km,
+                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text)
+                };
+                DataProvider.Ins.DB.HOADONMHs.Add(hdmh);
+            }            
+            
+            DataProvider.Ins.DB.SaveChanges();
             notifier.ShowSuccess("Success");
-        }     
+        }
+
+        private void tbCode_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CHITIETKHUYENMAI ctkm = DataProvider.Ins.DB.CHITIETKHUYENMAIs.Where(x => x.MAKM == tbCode.Text && x.MALOAISPKM == CTSP.SANPHAM.MALOAISP && x.KHUYENMAI.NGAYBATDAU <= DateTime.Now && x.KHUYENMAI.NGAYKETTHUC >= DateTime.Now).FirstOrDefault();
+            if(ctkm != null)
+            {
+                decimal? giagoc = CTSP.SANPHAM.GIABAN;
+                decimal? giaban = giagoc * (100 - (int)ctkm.KHUYENMAI.PHANTRAMKM) / 100;
+                km = giagoc * (int)ctkm.KHUYENMAI.PHANTRAMKM / 100;
+                tbPrice.Text = String.Format("{0:0,0}", giaban);
+            }
+            else
+            {
+                tbPrice.Text = String.Format("{0:0,0}", CTSP.SANPHAM.GIABAN);
+            }    
+        }
+
+        private bool convertPayment(int i)
+        {
+            if(i == 0)
+                return false;
+            return true;
+        }
     }
 }

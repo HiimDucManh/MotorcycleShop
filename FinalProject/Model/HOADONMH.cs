@@ -19,6 +19,7 @@ namespace FinalProject.Model
         public string MASPMH { get; set; }
         public string MAKHMH { get; set; }
         public string MANVMH { get; set; }
+        public Nullable<bool> LOAITHANHTOAN { get; set; }
         public Nullable<decimal> TONGTIEN { get; set; }
         public string MAKM { get; set; }
         public Nullable<decimal> SOTIENKM { get; set; }

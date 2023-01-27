@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,12 @@ namespace FinalProject.View.Customer
     public partial class HomePage : Page
     {
         int i = 2;
+        KHACHHANG khachhang;
 
-        public HomePage()
+        public HomePage(KHACHHANG kh)
         {
             InitializeComponent();
+            khachhang = kh;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -108,7 +111,7 @@ namespace FinalProject.View.Customer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListMotorcyclePage());
+            NavigationService.Navigate(new ListMotorcyclePage(khachhang));
         }
     }
 }

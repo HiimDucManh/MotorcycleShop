@@ -95,37 +95,95 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
-
-        <Border CornerRadius="5">
+        <!--<Border>
             <Border.Background>
                 <ImageBrush 
-                        ImageSource="/Assets/Layout/DucatiSV.jpg"
+                        ImageSource="/Assets/Layout/SV.jpg"
                         Stretch="UniformToFill" 
-                        AlignmentY="Top"/>
+                        AlignmentX="Right"/>
             </Border.Background>
-            
+
             <Image Source="/Assets/Avatars/Ducati_Service_Logo.png"
                    Height="80"
-                   Margin="60 20"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Bottom"
+                   Margin="50 80 50 50"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
                    Stretch="Uniform"/>
-        </Border>
+        </Border>-->
 
        
         <!--<Image Source="/Assets/Layout/Service2.jpg"
                    Stretch="UniformToFill"
                    VerticalAlignment="Top"/>-->
 
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                        Margin="50 0 0 30"
-                    Grid.Row="1">
-            <TextBox x:Name="tbName" HorizontalAlignment="Left"
-                         MinWidth="250"
+        <Border Margin="0 50 0 0">
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/Avatars/Logo2.png"
+                                        Stretch="Uniform"
+                                        Opacity="0.2"/>
+            </Border.Background>
+        </Border>
+
+        <StackPanel>
+            <!--<Image Source="/Assets/Layout/SV.jpg"
+                   Stretch="UniformToFill" Margin="0 0 0 20"/>-->
+
+            <!--<Image Source="/Assets/Avatars/Ducati_Service_Logo.png"
+                   Height="80"
+                   Margin="50 80 50 50"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Stretch="Uniform"/>-->
+
+            <TextBlock Text="REGISTRATION FOR MAINTENANCE SERVICE"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       Margin="0 100 0 30"
+                       Foreground="{DynamicResource PrimaryRedColor}"
+                       FontWeight="Black"/>
+
+            <ComboBox Name="cbbModel"
+                      Margin="10 7" Padding="10"
+                      HorizontalAlignment="Center"
+                      Width="300"
+                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                      materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                      materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}"
+                      materialDesign:HintAssist.Hint="Motorcycle model">
+                <ComboBox.Resources>
+                    <Style TargetType="{x:Type materialDesign:SmartHint}">
+                        <Setter Property="FontWeight"
+                                            Value="Bold" />
+                    </Style>
+                </ComboBox.Resources>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="Diavel"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="HyperMotard"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="Monster"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="Multistrada"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="Panigale"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="StreetFighter"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="SuperSport"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock VerticalAlignment="Center" Text="XDiavel"/>
+                </ComboBoxItem>
+            </ComboBox>
+
+            <TextBox x:Name="tbName" HorizontalAlignment="Center"
+                         Width="300"
                                 Margin="10 7" Padding="10"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
@@ -149,12 +207,12 @@
                     </StackPanel>
                 </materialDesign:HintAssist.Hint>
             </TextBox>
-            <TextBox x:Name="tbPhone" HorizontalAlignment="Left"
-                         MinWidth="250"
-                                    Margin="10 7" Padding="10"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
-                                    materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
+            <TextBox x:Name="tbPhone" HorizontalAlignment="Center"
+                         Width="300"
+                         Margin="10 7" Padding="10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                         materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type materialDesign:SmartHint}">
                         <Setter Property="FontWeight"
@@ -175,8 +233,34 @@
                 </materialDesign:HintAssist.Hint>
             </TextBox>
 
-            <TextBox x:Name="tbAddress" HorizontalAlignment="Left"
-                         MinWidth="250"
+            <TextBox x:Name="tbEmail" HorizontalAlignment="Center"
+                         Width="300"
+                         Margin="10 7" Padding="10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                         materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type materialDesign:SmartHint}">
+                        <Setter Property="FontWeight"
+                                    Value="Bold" />
+                    </Style>
+                </TextBox.Resources>
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{DynamicResource letter}" 
+                                            Stretch="Uniform"
+                                            Height="auto" Width="15"
+                                            VerticalAlignment="Center"
+                                            Fill="{DynamicResource PrimaryRedColor}"/>
+                        <TextBlock Text="Email"
+                                           VerticalAlignment="Center"
+                                           Margin="8 0 0 0"/>
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+
+            <TextBox x:Name="tbAddress" HorizontalAlignment="Center"
+                         Width="300" 
                                     Margin="10 7" Padding="10"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
@@ -201,11 +285,34 @@
                 </materialDesign:HintAssist.Hint>
             </TextBox>
 
-            <Button x:Name="btnBuy"
-                                    HorizontalAlignment="Center"
-                                    Width="120"
-                                    Style="{DynamicResource MyPrimaryButtonIconRightStyle}" Tag="{DynamicResource cart-shopping}" Content="Buy Now" Grid.Column="1" 
-                                    Padding="10" Margin="0 10"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Margin="10 7"
+                VerticalAlignment="Top" HorizontalAlignment="Center"
+                Height="90" Width="300"
+                AcceptsReturn="True"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                materialDesign:HintAssist.Hint="Detail information description"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
+                materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type materialDesign:SmartHint}">
+                        <Setter Property="FontWeight"
+                                Value="Bold" />
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            
+            
         </StackPanel>
+
+        <Button x:Name="btnSend"
+                    Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                    Background="{DynamicResource PrimaryRedColor}"
+                    BorderBrush="{x:Null}"
+                    Content="Send Information"
+                    Margin="0 30 0 20" Click="btnSend_Click"/>
     </Grid>
 </Page>

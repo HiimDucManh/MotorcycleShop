@@ -62,16 +62,18 @@
 
             <Grid Grid.Column="1" Margin="30 0">
                 <StackPanel VerticalAlignment="Bottom">
-                    <Button Style="{DynamicResource MyPrimaryButtonIconLeftStyle}" 
-                            Tag="{DynamicResource cart-shopping}" 
-                            Height="auto" Width="auto"
-                            Content="Discover More" 
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            Padding="15"
-                            Margin="0 30 60 40" Click="Button_Click"/>
-                    
-                    
+                    <Button x:Name="btnBuy"
+                            Width="130" Height="40"
+                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                            Style="{DynamicResource MaterialDesignRaisedButton}"
+                            Foreground="{DynamicResource PrimaryBackgroundColor}"                                               
+                            Background="{DynamicResource PrimaryRedColor}"
+                            BorderBrush="{x:Null}"
+                            Content="Discover More"
+                            Margin="0 30 60 40" 
+                            Click="Button_Click"/>
+
+
                     <TextBlock Text="ducatiVietNam@gmail.com"
                                HorizontalAlignment="Right"
                                FontSize="13" FontWeight="Bold"/>
