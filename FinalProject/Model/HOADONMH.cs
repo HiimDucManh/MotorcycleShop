@@ -17,6 +17,8 @@ namespace FinalProject.Model
         public string MAHDMH { get; set; }
         public Nullable<System.DateTime> NGAYHDMH { get; set; }
         public string MASPMH { get; set; }
+        public string MAMAUSPMH { get; set; }
+        public byte[] IMGSPMH { get; set; }
         public string MAKHMH { get; set; }
         public string MANVMH { get; set; }
         public Nullable<bool> LOAITHANHTOAN { get; set; }
@@ -24,9 +26,11 @@ namespace FinalProject.Model
         public string MAKM { get; set; }
         public Nullable<decimal> SOTIENKM { get; set; }
         public Nullable<decimal> SOTIENPHAITRA { get; set; }
+        public string TINHTRANG { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual KHUYENMAI KHUYENMAI { get; set; }
+        public virtual MAU MAU { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }

@@ -143,7 +143,7 @@
                        FontWeight="Black"/>
 
             <ComboBox Name="cbbModel"
-                      Margin="10 7" Padding="10"
+                      Margin="10 7 10 0" Padding="10"
                       HorizontalAlignment="Center"
                       Width="300"
                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
@@ -181,10 +181,15 @@
                     <TextBlock VerticalAlignment="Center" Text="XDiavel"/>
                 </ComboBoxItem>
             </ComboBox>
+            <TextBlock x:Name="tblCheckmodel" Width="300"
+                       Text="*" Margin="20 0 10 10"
+                       FontWeight="Bold"
+                       Foreground="Red"
+                       FontStyle="Italic"/>
 
             <TextBox x:Name="tbName" HorizontalAlignment="Center"
                          Width="300"
-                                Margin="10 7" Padding="10"
+                                Margin="10 0 10 7" Padding="10"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
                                 materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
@@ -285,7 +290,8 @@
                 </materialDesign:HintAssist.Hint>
             </TextBox>
 
-            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+            <TextBox x:Name="tbDetail"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Margin="10 7"
                 VerticalAlignment="Top" HorizontalAlignment="Center"
                 Height="90" Width="300"
