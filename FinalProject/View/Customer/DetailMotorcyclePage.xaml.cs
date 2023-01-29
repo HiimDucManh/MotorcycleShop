@@ -35,6 +35,7 @@ namespace FinalProject.View.Customer
         {
             InitializeComponent();
             khachhang = kh;
+            tblCheckPayment.Visibility = Visibility.Hidden;
 
             if (model == "DIA")
             {
@@ -285,14 +286,14 @@ namespace FinalProject.View.Customer
             int v = DataProvider.Ins.DB.HOADONMHs.Count();
             if(v == 0)
             {
-                tblMaHD.Text = "HD1";
+                tblMaHD.Text = "HDMH1";
             }    
             else
             {
                 List<HOADONMH> listMH = DataProvider.Ins.DB.HOADONMHs.ToList();
                 HOADONMH hdmh = listMH[v - 1];
-                string mahd = hdmh.MAHDMH.Substring(2);
-                tblMaHD.Text = "HD" + (Int32.Parse(mahd) + 1);
+                string mahd = hdmh.MAHDMH.Substring(4);
+                tblMaHD.Text = "HDMH" + (Int32.Parse(mahd) + 1);
             }    
         }
 
@@ -316,6 +317,13 @@ namespace FinalProject.View.Customer
 
         private void btnCreateBill_Click(object sender, RoutedEventArgs e)
         {
+            if (cbbPayment.SelectedItem == null)
+            {
+                tblCheckPayment.Visibility = Visibility.Visible;
+                tblCheckPayment.Text = "*Select a payment method";
+                return;
+            }
+
             gridCreateBill.RenderTransform = new TranslateTransform(0, 0);
             DoubleAnimation da1 = new DoubleAnimation();
             da1.From = 0;
@@ -330,7 +338,7 @@ namespace FinalProject.View.Customer
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             gridDetail.BeginAnimation(OpacityProperty, da);
             gridDetail.IsEnabled = true;
-
+           
             if(decimal.Parse(tbPrice.Text) == CTSP.SANPHAM.GIABAN)
             {
                 HOADONMH hdmh = new HOADONMH()
@@ -338,13 +346,16 @@ namespace FinalProject.View.Customer
                     MAHDMH = tblMaHD.Text,
                     NGAYHDMH = DateTime.Now,
                     MASPMH = CTSP.MASP,
+                    MAMAUSPMH = CTSP.MAMAUSP,
+                    IMGSPMH = CTSP.IMG,
                     MAKHMH = khachhang.MAKH,
                     MANVMH = null,
                     LOAITHANHTOAN = convertPayment(cbbPayment.SelectedIndex),
                     TONGTIEN = CTSP.SANPHAM.GIABAN,
                     MAKM = null,
                     SOTIENKM = null,
-                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text)
+                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text),
+                    TINHTRANG = "Unpaid"
                 };
                 DataProvider.Ins.DB.HOADONMHs.Add(hdmh);
             }
@@ -355,18 +366,34 @@ namespace FinalProject.View.Customer
                     MAHDMH = tblMaHD.Text,
                     NGAYHDMH = DateTime.Now,
                     MASPMH = CTSP.MASP,
+                    MAMAUSPMH = CTSP.MAMAUSP,
+                    IMGSPMH = CTSP.IMG,
                     MAKHMH = khachhang.MAKH,
                     MANVMH = null,
+                    LOAITHANHTOAN = convertPayment(cbbPayment.SelectedIndex),
                     TONGTIEN = CTSP.SANPHAM.GIABAN,
                     MAKM = tbCode.Text,
                     SOTIENKM = km,
-                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text)
+                    SOTIENPHAITRA = decimal.Parse(tbPrice.Text),
+                    TINHTRANG = "Unpaid"
                 };
                 DataProvider.Ins.DB.HOADONMHs.Add(hdmh);
-            }            
-            
-            DataProvider.Ins.DB.SaveChanges();
-            notifier.ShowSuccess("Success");
+
+                if (CTSP.SLTON > 0)
+                {
+                    CTSP.SLTON = CTSP.SLTON - 1;
+                    CTSP.SLBAN = CTSP.SLBAN + 1;
+                    khachhang.DOANHSO = khachhang.DOANHSO + decimal.Parse(tbPrice.Text);
+                    khachhang.SOLUONGSANPHAM = khachhang.SOLUONGSANPHAM + 1;
+
+                    DataProvider.Ins.DB.SaveChanges();
+                    notifier.ShowSuccess("Order Success");
+                }
+                else
+                {
+                    notifier.ShowError("The product is out of stock");
+                }
+            }
         }
 
         private void tbCode_TextChanged(object sender, TextChangedEventArgs e)

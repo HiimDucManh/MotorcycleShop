@@ -21,6 +21,8 @@
           </Key>
           <Property Name="MASP" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="MAMAUSP" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SLTON" Type="int" />
+          <Property Name="SLBAN" Type="int" />
           <Property Name="GHICHU" Type="nvarchar" MaxLength="1000" />
           <Property Name="IMG" Type="varbinary(max)" />
         </EntityType>
@@ -34,6 +36,7 @@
           <Property Name="MAKHBT" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="MANVBT" Type="varchar" MaxLength="40" />
           <Property Name="SOTIENPHAITRA" Type="money" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="40" />
           <Property Name="GHICHU" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="HOADONMH">
@@ -43,6 +46,8 @@
           <Property Name="MAHDMH" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="NGAYHDMH" Type="datetime" />
           <Property Name="MASPMH" Type="varchar" MaxLength="40" />
+          <Property Name="MAMAUSPMH" Type="varchar" MaxLength="40" />
+          <Property Name="IMGSPMH" Type="varbinary(max)" />
           <Property Name="MAKHMH" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="MANVMH" Type="varchar" MaxLength="40" />
           <Property Name="LOAITHANHTOAN" Type="bit" />
@@ -50,6 +55,7 @@
           <Property Name="MAKM" Type="varchar" MaxLength="40" />
           <Property Name="SOTIENKM" Type="money" />
           <Property Name="SOTIENPHAITRA" Type="money" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -129,8 +135,6 @@
           </Key>
           <Property Name="MASP" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="TENSP" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="SLTON" Type="int" />
-          <Property Name="SLBAN" Type="int" />
           <Property Name="GIAGOC" Type="money" />
           <Property Name="GIABAN" Type="money" />
           <Property Name="CONGSUAT" Type="nvarchar" MaxLength="200" />
@@ -233,6 +237,18 @@
             </Principal>
             <Dependent Role="CHITIETSANPHAM">
               <PropertyRef Name="MAMAUSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAMAUSPMH">
+          <End Role="MAU" Type="Self.MAU" Multiplicity="0..1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAU">
+              <PropertyRef Name="MAMAU" />
+            </Principal>
+            <Dependent Role="HOADONMH">
+              <PropertyRef Name="MAMAUSPMH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -352,6 +368,10 @@
             <End Role="MAU" EntitySet="MAU" />
             <End Role="CHITIETSANPHAM" EntitySet="CHITIETSANPHAM" />
           </AssociationSet>
+          <AssociationSet Name="FK_MAMAUSPMH" Association="Self.FK_MAMAUSPMH">
+            <End Role="MAU" EntitySet="MAU" />
+            <End Role="HOADONMH" EntitySet="HOADONMH" />
+          </AssociationSet>
           <AssociationSet Name="FK_MANVBT" Association="Self.FK_MANVBT">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
             <End Role="HOADONBT" EntitySet="HOADONBT" />
@@ -429,6 +449,10 @@
             <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
             <End Role="HOADONMH" EntitySet="HOADONMHs" />
           </AssociationSet>
+          <AssociationSet Name="FK_MAMAUSPMH" Association="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH">
+            <End Role="MAU" EntitySet="MAUs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
           <AssociationSet Name="FK_MANVMH" Association="MOTORBIKEMANAGEMENTModel.FK_MANVMH">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="HOADONMH" EntitySet="HOADONMHs" />
@@ -468,6 +492,8 @@
           </Key>
           <Property Name="MASP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MAMAUSP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SLTON" Type="Int32" />
+          <Property Name="SLBAN" Type="Int32" />
           <Property Name="GHICHU" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="MAU" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP" FromRole="CHITIETSANPHAM" ToRole="MAU" />
@@ -483,6 +509,7 @@
           <Property Name="MAKHBT" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MANVBT" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SOTIENPHAITRA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="GHICHU" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KHACHHANG" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHBT" FromRole="HOADONBT" ToRole="KHACHHANG" />
           <NavigationProperty Name="LOAISP" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISPBT" FromRole="HOADONBT" ToRole="LOAISP" />
@@ -495,6 +522,8 @@
           <Property Name="MAHDMH" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="NGAYHDMH" Type="DateTime" Precision="3" />
           <Property Name="MASPMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAMAUSPMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IMGSPMH" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MAKHMH" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MANVMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="LOAITHANHTOAN" Type="Boolean" />
@@ -502,8 +531,10 @@
           <Property Name="MAKM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SOTIENKM" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOTIENPHAITRA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KHACHHANG" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHMH" FromRole="HOADONMH" ToRole="KHACHHANG" />
           <NavigationProperty Name="KHUYENMAI" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKM" FromRole="HOADONMH" ToRole="KHUYENMAI" />
+          <NavigationProperty Name="MAU" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH" FromRole="HOADONMH" ToRole="MAU" />
           <NavigationProperty Name="NHANVIEN" Relationship="MOTORBIKEMANAGEMENTModel.FK_MANVMH" FromRole="HOADONMH" ToRole="NHANVIEN" />
           <NavigationProperty Name="SANPHAM" Relationship="MOTORBIKEMANAGEMENTModel.FK_MASPMH" FromRole="HOADONMH" ToRole="SANPHAM" />
         </EntityType>
@@ -561,6 +592,7 @@
           <Property Name="TENMAU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="CHITIETSANPHAMs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP" FromRole="MAU" ToRole="CHITIETSANPHAM" />
+          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH" FromRole="MAU" ToRole="HOADONMH" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -599,8 +631,6 @@
           </Key>
           <Property Name="MASP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="TENSP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SLTON" Type="Int32" />
-          <Property Name="SLBAN" Type="Int32" />
           <Property Name="GIAGOC" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="GIABAN" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="CONGSUAT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -721,6 +751,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MAMAUSPMH">
+          <End Type="MOTORBIKEMANAGEMENTModel.MAU" Role="MAU" Multiplicity="0..1" />
+          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAU">
+              <PropertyRef Name="MAMAU" />
+            </Principal>
+            <Dependent Role="HOADONMH">
+              <PropertyRef Name="MAMAUSPMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MANVMH">
           <End Type="MOTORBIKEMANAGEMENTModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
           <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
@@ -801,6 +843,8 @@
               <MappingFragment StoreEntitySet="CHITIETSANPHAM">
                 <ScalarProperty Name="IMG" ColumnName="IMG" />
                 <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="SLBAN" ColumnName="SLBAN" />
+                <ScalarProperty Name="SLTON" ColumnName="SLTON" />
                 <ScalarProperty Name="MAMAUSP" ColumnName="MAMAUSP" />
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
               </MappingFragment>
@@ -810,6 +854,7 @@
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.HOADONBT">
               <MappingFragment StoreEntitySet="HOADONBT">
                 <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
                 <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
                 <ScalarProperty Name="MANVBT" ColumnName="MANVBT" />
                 <ScalarProperty Name="MAKHBT" ColumnName="MAKHBT" />
@@ -822,6 +867,7 @@
           <EntitySetMapping Name="HOADONMHs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.HOADONMH">
               <MappingFragment StoreEntitySet="HOADONMH">
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
                 <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
                 <ScalarProperty Name="SOTIENKM" ColumnName="SOTIENKM" />
                 <ScalarProperty Name="MAKM" ColumnName="MAKM" />
@@ -829,6 +875,8 @@
                 <ScalarProperty Name="LOAITHANHTOAN" ColumnName="LOAITHANHTOAN" />
                 <ScalarProperty Name="MANVMH" ColumnName="MANVMH" />
                 <ScalarProperty Name="MAKHMH" ColumnName="MAKHMH" />
+                <ScalarProperty Name="IMGSPMH" ColumnName="IMGSPMH" />
+                <ScalarProperty Name="MAMAUSPMH" ColumnName="MAMAUSPMH" />
                 <ScalarProperty Name="MASPMH" ColumnName="MASPMH" />
                 <ScalarProperty Name="NGAYHDMH" ColumnName="NGAYHDMH" />
                 <ScalarProperty Name="MAHDMH" ColumnName="MAHDMH" />
@@ -924,8 +972,6 @@
                 <ScalarProperty Name="CONGSUAT" ColumnName="CONGSUAT" />
                 <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
                 <ScalarProperty Name="GIAGOC" ColumnName="GIAGOC" />
-                <ScalarProperty Name="SLBAN" ColumnName="SLBAN" />
-                <ScalarProperty Name="SLTON" ColumnName="SLTON" />
                 <ScalarProperty Name="TENSP" ColumnName="TENSP" />
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
               </MappingFragment>

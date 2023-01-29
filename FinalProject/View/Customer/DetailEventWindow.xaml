@@ -127,17 +127,17 @@
                    Stretch="Uniform"
                    Opacity="0.2" Grid.Row="1"/>
 
-            <ScrollViewer Grid.Row="1">
-                <StackPanel Margin="20 0 10 20">
-                    <TextBlock Text="PROMOTION EVENT DETAILS"
+            <StackPanel Margin="20 0 10 20" Grid.Row="1">
+                <TextBlock Text="PROMOTION EVENT DETAILS"
                        HorizontalAlignment="Center"
                        FontSize="30"                       
                        Foreground="{DynamicResource PrimaryRedColor}"
                        FontWeight="Black"
                                Margin="0 0 0 10"/>
 
-                    <DataGrid AutoGenerateColumns="False"
-                              x:Name="datagridKM"
+                <ScrollViewer>
+                    <DataGrid AutoGenerateColumns="False" Height="80"
+                              x:Name="datagridKM" Margin="20 0"
                               Background="Transparent"
                               CanUserAddRows="False"
                               CanUserSortColumns="True"
@@ -158,11 +158,11 @@
                             </Style>
                         </DataGrid.RowStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Promotion name"
+                            <DataGridTextColumn Header="Name"
                                                 Binding="{Binding TENKM}"
                                                 IsReadOnly="False"
                                                 Width="3*"/>
-                            <DataGridTextColumn Header="Promotion code"
+                            <DataGridTextColumn Header="Code"
                                                 Binding="{Binding MAKM}"
                                                 IsReadOnly="False"
                                                 Width="2*"/>
@@ -172,19 +172,21 @@
                                                 Width="2*"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                </ScrollViewer>
 
 
-                    <StackPanel x:Name="stpnModel" Visibility="Collapsed">
-                        <TextBlock Text="Vehicles model with discount code"
+                <StackPanel x:Name="stpnModel" Visibility="Collapsed">
+                    <TextBlock Text="Vehicles model with discount code"
                             HorizontalAlignment="Center"
                             FontSize="25"                       
                             Foreground="{DynamicResource PrimaryRedColor}"
                             FontWeight="Black" 
-                            Margin="0 30 0 10"/>
+                            Margin="0 20 0 5"/>
 
-                        <ListView x:Name="ListViewModels" 
+                    <ScrollViewer>
+                        <ListView x:Name="ListViewModels"  
                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                Margin="10 0 15 0"
+                                Margin="10 0 15 0" Height="88"
                                 Background="Transparent"
                                 Foreground="{x:Null}"  
                                 HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -219,9 +221,9 @@
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ListView>
-                    </StackPanel>
+                    </ScrollViewer>
                 </StackPanel>
-            </ScrollViewer>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

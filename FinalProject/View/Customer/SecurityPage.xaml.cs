@@ -26,7 +26,7 @@ namespace FinalProject.View.Customer
     public partial class SecurityPage : Page
     {
         KHACHHANG khachhang;
-        int otp;
+        int otp = 9999999;
         Random random= new Random();
         public SecurityPage(KHACHHANG kh)
         {

@@ -16,6 +16,8 @@ namespace FinalProject.Model
     {
         public string MASP { get; set; }
         public string MAMAUSP { get; set; }
+        public Nullable<int> SLTON { get; set; }
+        public Nullable<int> SLBAN { get; set; }
         public string GHICHU { get; set; }
         public byte[] IMG { get; set; }
     

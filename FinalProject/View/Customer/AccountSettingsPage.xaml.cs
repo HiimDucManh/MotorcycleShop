@@ -89,6 +89,14 @@ namespace FinalProject.View.Customer
             }
         }
 
+        private void tgbBill_Checked(object sender, RoutedEventArgs e)
+        {
+            if (tgbBill.IsChecked == true)
+            {
+                PagesNavigation.Navigate(new BillPage(khachhang));
+            }
+        }
+
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             LoginView wd = new LoginView();
@@ -135,6 +143,6 @@ namespace FinalProject.View.Customer
                 maximumNotificationCount: MaximumNotificationCount.FromCount(1));
 
             cfg.Dispatcher = System.Windows.Application.Current.Dispatcher;
-        });
+        });       
     }
 }

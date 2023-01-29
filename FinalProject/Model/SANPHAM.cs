@@ -23,8 +23,6 @@ namespace FinalProject.Model
     
         public string MASP { get; set; }
         public string TENSP { get; set; }
-        public Nullable<int> SLTON { get; set; }
-        public Nullable<int> SLBAN { get; set; }
         public Nullable<decimal> GIAGOC { get; set; }
         public Nullable<decimal> GIABAN { get; set; }
         public string CONGSUAT { get; set; }

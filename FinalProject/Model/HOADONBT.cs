@@ -20,6 +20,7 @@ namespace FinalProject.Model
         public string MAKHBT { get; set; }
         public string MANVBT { get; set; }
         public Nullable<decimal> SOTIENPHAITRA { get; set; }
+        public string TINHTRANG { get; set; }
         public string GHICHU { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }

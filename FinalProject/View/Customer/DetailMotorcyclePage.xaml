@@ -301,7 +301,7 @@
                         </StackPanel>
                         
                         <TextBox x:Name="tbName"
-                                Margin="10 7" Padding="10"
+                                Margin="10 5" Padding="10"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
                                 materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
@@ -325,7 +325,7 @@
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <TextBox x:Name="tbPhone"
-                                    Margin="10 7" Padding="10"
+                                    Margin="10 5" Padding="10"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
                                     materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
@@ -349,7 +349,7 @@
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <TextBox x:Name="tbEmail"
-                                    Margin="10 7" Padding="10"
+                                    Margin="10 5" Padding="10"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
                                     materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
@@ -373,7 +373,7 @@
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <TextBox x:Name="tbAddress"
-                                    Margin="10 7" Padding="10"
+                                    Margin="10 5" Padding="10"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryRedColor}"
                                     materialDesign:HintAssist.Foreground="{DynamicResource PrimaryRedColor}">
@@ -398,7 +398,7 @@
                         </TextBox>
 
                         <ComboBox Name="cbbPayment"
-                                    Margin="10 7" Padding="10"
+                                    Margin="10 5" Padding="10"
                                     HorizontalAlignment="Left"
                                     Width="220"
                                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
@@ -417,7 +417,7 @@
                                             Height="16" Width="auto" Stretch="Uniform"
                                             Fill="{DynamicResource PrimaryRedColor}" 
                                             Margin="10 0"/>
-                                    <TextBlock VerticalAlignment="Center" Text="Thanh toán online"/>
+                                    <TextBlock VerticalAlignment="Center" Text="Online payment"/>
                                 </StackPanel>
                             </ComboBoxItem>
                             <ComboBoxItem>
@@ -426,10 +426,15 @@
                                              Height="16" Width="auto" Stretch="Uniform"
                                             Fill="{DynamicResource PrimaryRedColor}" 
                                             Margin="10 0"/>
-                                    <TextBlock VerticalAlignment="Center" Text="Thanh toán khi nhận"/>
+                                    <TextBlock VerticalAlignment="Center" Text="Direct payment"/>
                                 </StackPanel>
                             </ComboBoxItem>
                         </ComboBox>
+                        <TextBlock x:Name="tblCheckPayment" 
+                            Text="*" Margin="10 0 10 3"
+                            FontWeight="Bold"
+                            Foreground="Red"
+                            FontStyle="Italic"/>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBox x:Name="tbCode"
