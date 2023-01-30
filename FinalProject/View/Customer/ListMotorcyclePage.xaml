@@ -125,7 +125,7 @@
                            VerticalAlignment="Top"/>
 
                     <Grid Grid.Column="0" Margin="30 40 0 0">
-                        <StackPanel VerticalAlignment="Center">
+                        <StackPanel VerticalAlignment="Center" x:Name="gridKM">
                             <TextBlock x:Name="tblTenKM"
                                        Text="Tên"
                                        Foreground="{DynamicResource PrimaryRedColor}"

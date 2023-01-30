@@ -26,14 +26,22 @@ namespace FinalProject.View.Customer
             InitializeComponent();
             khachhang= kh;
 
-            KHUYENMAI khuyenmai = DataProvider.Ins.DB.KHUYENMAIs.Where(x => x.NGAYBATDAU <= DateTime.Now && x.NGAYKETTHUC >= DateTime.Now).First();
-            tblTenKM.Text = khuyenmai.TENKM;
-            tblPhanTram.Text = khuyenmai.PHANTRAMKM.ToString();
-            CultureInfo viVn = new CultureInfo("vi-VN");
-            DateTime bd = khuyenmai.NGAYBATDAU.GetValueOrDefault();
-            tblNgayBD.Text = bd.ToString("d", viVn);
-            DateTime kt = khuyenmai.NGAYKETTHUC.GetValueOrDefault();
-            tblNgayKT.Text = kt.ToString("d", viVn);
+            KHUYENMAI khuyenmai = DataProvider.Ins.DB.KHUYENMAIs.Where(x => x.NGAYBATDAU <= DateTime.Now && x.NGAYKETTHUC >= DateTime.Now).FirstOrDefault();
+            if(khuyenmai != null)
+            {
+                tblTenKM.Text = khuyenmai.TENKM;
+                tblPhanTram.Text = khuyenmai.PHANTRAMKM.ToString();
+                CultureInfo viVn = new CultureInfo("vi-VN");
+                DateTime bd = khuyenmai.NGAYBATDAU.GetValueOrDefault();
+                tblNgayBD.Text = bd.ToString("d", viVn);
+                DateTime kt = khuyenmai.NGAYKETTHUC.GetValueOrDefault();
+                tblNgayKT.Text = kt.ToString("d", viVn);
+            }
+            else
+            {
+                gridKM.Visibility = Visibility.Hidden;
+            }
+            
 
 
             List<SANPHAM> listProductDIA = DataProvider.Ins.DB.SANPHAMs.Where(x => x.MALOAISP == "DIA").ToList();

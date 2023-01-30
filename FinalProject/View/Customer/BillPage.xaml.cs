@@ -51,5 +51,14 @@ namespace FinalProject.View.Customer
                 datagridMaint.ItemsSource = DataProvider.Ins.DB.HOADONBTs.Where(x => x.MAKHBT == kh.MAKH).ToList();
             }
         }
+
+        private void ListPurchase_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ListPurchase.SelectedItem != null)
+            {
+                PrintBillWindow wd = new PrintBillWindow(khachhang, (HOADONMH)ListPurchase.SelectedItem);
+                wd.ShowDialog();
+            }    
+        }
     }
 }

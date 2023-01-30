@@ -121,7 +121,7 @@
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           Background="Transparent" 
                           Foreground="{x:Null}"
-                          HorizontalAlignment="Left" VerticalAlignment="Top">
+                          HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="ListPurchase_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border x:Name="border"
