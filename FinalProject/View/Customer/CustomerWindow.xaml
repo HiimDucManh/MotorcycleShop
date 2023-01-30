@@ -49,7 +49,7 @@
                 <StackPanel Grid.Row="0" Orientation="Horizontal" 
                         HorizontalAlignment="Left" VerticalAlignment="Top"
                         Margin="30 10">
-                    <Path Data="{DynamicResource motorbike}" Stretch="Uniform" Fill="{DynamicResource PrimaryRedColor}" Width="auto" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Image Source="/Assets/Avatars/ducati_logo.png" Height="25" Width="auto"/>
                     <Label x:Name="lb" Content="DUCATI" Foreground="{DynamicResource PrimaryRedColor}" FontWeight="ExtraBold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
                 </StackPanel>
                 <!-- End: Logo -->

@@ -308,6 +308,42 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ButtonIconPrintStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background="{DynamicResource PrimaryRedColor}"
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Path x:Name="Icon"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="20" Width="auto" Stretch="Uniform"
+                                  Fill="white" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource SecundaryRedColor}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="ButtonIconLeftStyle" TargetType="{x:Type Button}">
         <Setter Property="Background"
                 Value="Transparent"/>

@@ -191,6 +191,9 @@
     <Compile Include="View\Customer\PriceServicePage.xaml.cs">
       <DependentUpon>PriceServicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\PrintBillWindow.xaml.cs">
+      <DependentUpon>PrintBillWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -269,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Customer\PriceServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\PrintBillWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -389,7 +396,6 @@
     <Resource Include="Assets\Layout\Service.jpg" />
     <Resource Include="Assets\Avatars\Ducati-Emblems.png" />
     <Resource Include="Assets\Layout\Showroom.jpg" />
-    <Resource Include="Assets\Layout\DucatiSV.jpg" />
     <Resource Include="Assets\Layout\BgSettings.jpg" />
     <Resource Include="Assets\Layout\SV.jpg" />
     <Resource Include="Assets\Avatars\Logo2.png" />
