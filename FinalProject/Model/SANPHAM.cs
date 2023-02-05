@@ -18,14 +18,11 @@ namespace FinalProject.Model
         public SANPHAM()
         {
             this.CHITIETSANPHAMs = new HashSet<CHITIETSANPHAM>();
-            this.HOADONBTs = new HashSet<HOADONBT>();
             this.HOADONMHs = new HashSet<HOADONMH>();
         }
     
         public string MASP { get; set; }
         public string TENSP { get; set; }
-        public Nullable<int> SLTON { get; set; }
-        public Nullable<int> SLBAN { get; set; }
         public Nullable<decimal> GIAGOC { get; set; }
         public Nullable<decimal> GIABAN { get; set; }
         public string CONGSUAT { get; set; }
@@ -37,8 +34,6 @@ namespace FinalProject.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETSANPHAM> CHITIETSANPHAMs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADONBT> HOADONBTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADONMH> HOADONMHs { get; set; }
         public virtual LOAISP LOAISP { get; set; }

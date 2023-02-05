@@ -17,6 +17,8 @@ namespace FinalProject.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAISP()
         {
+            this.CHITIETKHUYENMAIs = new HashSet<CHITIETKHUYENMAI>();
+            this.HOADONBTs = new HashSet<HOADONBT>();
             this.SANPHAMs = new HashSet<SANPHAM>();
         }
     
@@ -26,6 +28,10 @@ namespace FinalProject.Model
         public byte[] IMGDV1 { get; set; }
         public byte[] IMGDV2 { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETKHUYENMAI> CHITIETKHUYENMAIs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADONBT> HOADONBTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
     }

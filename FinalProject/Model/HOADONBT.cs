@@ -16,13 +16,15 @@ namespace FinalProject.Model
     {
         public string MAHDBT { get; set; }
         public Nullable<System.DateTime> NGAYHDBT { get; set; }
-        public string MASPBT { get; set; }
+        public string MALOAISPBT { get; set; }
         public string MAKHBT { get; set; }
         public string MANVBT { get; set; }
         public Nullable<decimal> SOTIENPHAITRA { get; set; }
+        public string TINHTRANG { get; set; }
+        public string GHICHU { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }
+        public virtual LOAISP LOAISP { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual SANPHAM SANPHAM { get; set; }
     }
 }

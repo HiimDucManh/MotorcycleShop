@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.View.Customer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Resources;
 using System.Windows.Shapes;
 
@@ -76,6 +78,18 @@ namespace FinalProject.View
             //brush.ImageSource = temp;
 
             btnClose.Background = Brushes.Transparent;
+        }
+
+        private void TextBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+          
+        }
+
+        private void TextBlock_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            SignUpView signUpView = new SignUpView();
+            signUpView.Show();
+            this.Close();
         }
     }
 }

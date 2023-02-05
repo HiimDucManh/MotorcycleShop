@@ -13,10 +13,10 @@ namespace FinalProject.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MOTORBIKEMANAGEMENTEntities : DbContext
+    public partial class MOTORBIKEMANAGEMENTEntities2 : DbContext
     {
-        public MOTORBIKEMANAGEMENTEntities()
-            : base("name=MOTORBIKEMANAGEMENTEntities")
+        public MOTORBIKEMANAGEMENTEntities2()
+            : base("name=MOTORBIKEMANAGEMENTEntities2")
         {
         }
     
@@ -25,6 +25,7 @@ namespace FinalProject.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CHITIETKHUYENMAI> CHITIETKHUYENMAIs { get; set; }
         public virtual DbSet<CHITIETSANPHAM> CHITIETSANPHAMs { get; set; }
         public virtual DbSet<HOADONBT> HOADONBTs { get; set; }
         public virtual DbSet<HOADONMH> HOADONMHs { get; set; }

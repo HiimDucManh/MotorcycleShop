@@ -18,6 +18,7 @@ namespace FinalProject.Model
         public MAU()
         {
             this.CHITIETSANPHAMs = new HashSet<CHITIETSANPHAM>();
+            this.HOADONMHs = new HashSet<HOADONMH>();
         }
     
         public string MAMAU { get; set; }
@@ -26,5 +27,7 @@ namespace FinalProject.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETSANPHAM> CHITIETSANPHAMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADONMH> HOADONMHs { get; set; }
     }
 }
