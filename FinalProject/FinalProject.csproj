@@ -47,6 +47,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -203,6 +209,18 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SignUpView.xaml.cs">
+      <DependentUpon>SignUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staffs\Pages\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staffs\Pages\Staff_CustomerPage.xaml.cs">
+      <DependentUpon>Staff_CustomerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staffs\StaffDashboard.xaml.cs">
+      <DependentUpon>StaffDashboard.xaml</DependentUpon>
+    </Compile>
     <Page Include="Assets\Icons\Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,6 +309,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SignUpView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Staffs\Pages\Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Staffs\Pages\Staff_CustomerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Staffs\StaffDashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -339,36 +373,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\226906.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LogInBackground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\minus-sign.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\minimized.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CloseBtn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MinimizedBtn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CloseBtnRed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\facebook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\google.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LogIn.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Avatars\ducati_logo.png" />
     <Resource Include="Assets\Avatars\Ducati.png" />
     <Resource Include="Assets\Layout\StoryBoard\8.png" />
@@ -400,6 +404,31 @@
     <Resource Include="Assets\Layout\SV.jpg" />
     <Resource Include="Assets\Avatars\Logo2.png" />
     <Resource Include="Assets\Layout\Event.jpg" />
+    <Resource Include="Images\226906.jpg" />
+    <Resource Include="Images\36217.png" />
+    <Resource Include="Images\add-user.png" />
+    <Resource Include="Images\avt.png" />
+    <Resource Include="Images\blueBG.jpg" />
+    <Resource Include="Images\CloseBtn.png" />
+    <Resource Include="Images\CloseBtnRed.png" />
+    <Resource Include="Images\customer.png" />
+    <Resource Include="Images\facebook.png" />
+    <Resource Include="Images\google.png" />
+    <Resource Include="Images\LogIn.png" />
+    <Resource Include="Images\LogInBackground.png" />
+    <Resource Include="Images\Logo.jpg" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\minimized.png" />
+    <Resource Include="Images\MinimizedBtn.png" />
+    <Resource Include="Images\minus-sign.png" />
+    <Resource Include="Images\motorcycle.png" />
+    <Resource Include="Images\orders.png" />
+    <Resource Include="Images\purpleBG.jpg" />
+    <Resource Include="Images\Racer.png" />
+    <Resource Include="Images\SignUpBackground.png" />
+    <Resource Include="Images\task-list.png" />
+    <Resource Include="Images\users.png" />
+    <Resource Include="Assets\Icons\Logo.ico" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
