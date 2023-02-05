@@ -14,7 +14,7 @@
     <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BFBFC4"/>
 
     <!-- Secundary Colors -->
-    <SolidColorBrush x:Key="SecundaryRedColor" Color="#E32431" Opacity="0.5"/>
+    <SolidColorBrush x:Key="SecundaryRedColor" Color="#E32431" Opacity="0.7"/>
     <SolidColorBrush x:Key="SecundaryGrayColor" Color="#EEEEEE"/>
 
     <!-- Typograhy Colors -->

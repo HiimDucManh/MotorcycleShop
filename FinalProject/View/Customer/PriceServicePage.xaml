@@ -93,7 +93,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Border CornerRadius="5">
+    <Border CornerRadius="5" Margin="0 50 0 0">
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -106,8 +106,14 @@
                         AlignmentY="Top"/>
         </Border.Background>-->
 
+        <Border.Background>
+            <ImageBrush ImageSource="/Assets/Avatars/Logo2.png"
+                        Stretch="Uniform"
+                        Opacity="0.2"/>
+        </Border.Background>
 
-        <Grid x:Name="gridService" Grid.Row="1" Margin="0 80 0 0">
+
+        <Grid x:Name="gridService" Grid.Row="1" Margin="0 30 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="0"/>
@@ -165,13 +171,12 @@
             <Grid x:Name="gridImage"
                     Grid.Column="1"
                     VerticalAlignment="Stretch"
-                    Margin="10 30 30 0"
-                    >
+                    Margin="10 30 30 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Text="BẢNG GIÁ DỊCH VỤ" FontSize="23"
+                <TextBlock Text="SERVICE PRICE LIST" FontSize="23"
                            FontWeight="Black" 
                            Foreground="{DynamicResource PrimaryRedColor}"
                            HorizontalAlignment="Center"

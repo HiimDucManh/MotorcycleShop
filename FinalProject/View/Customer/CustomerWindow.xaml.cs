@@ -21,11 +21,19 @@ namespace FinalProject.View.Customer
     /// </summary>
     public partial class CustomerWindow : Window
     {
-        public CustomerWindow()
+        KHACHHANG khachhang;
+        public CustomerWindow(KHACHHANG kh)
         {
             InitializeComponent();
-            PagesNavigation.Navigate(new HomePage());
+            khachhang = kh;
+            PagesNavigation.Navigate(new HomePage(khachhang));
             ListViewModels.ItemsSource = DataProvider.Ins.DB.LOAISPs.ToList();
+
+            if(kh.NGUOIDUNG.CHEDOND == true)
+            {
+                Application.Current.Resources["PrimaryBackgroundColor"] = (SolidColorBrush)new BrushConverter().ConvertFrom("#36393F");
+                Application.Current.Resources["TextSecundaryColor"] = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFF");
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -68,7 +76,7 @@ namespace FinalProject.View.Customer
 
         private void rdbHome_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new HomePage());
+            PagesNavigation.Navigate(new HomePage(khachhang));
 
             btnMenu.IsChecked = false;
             ResetMenu();
@@ -108,7 +116,7 @@ namespace FinalProject.View.Customer
                     nameBlock.Foreground = (Brush)bc.ConvertFrom("#E32431");
 
                     LOAISP lsp = (LOAISP)ListViewModels.SelectedItem;
-                    PagesNavigation.Navigate(new DetailMotorcyclePage(lsp.MALOAI));
+                    PagesNavigation.Navigate(new DetailMotorcyclePage(khachhang, lsp.MALOAI));
                     btnMenu.IsChecked = false;
                     ResetMenu();
                 }
@@ -175,15 +183,15 @@ namespace FinalProject.View.Customer
 
         private void tgbMaintenance_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new MaintenanceServicePage());
+            PagesNavigation.Navigate(new MaintenanceServicePage(khachhang));
 
             btnMenu.IsChecked = false;
             ResetMenu();
         }
-
-        private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new AccountSettingsPage());
+            PagesNavigation.Navigate(new AccountSettingsPage(khachhang));
 
             btnMenu.IsChecked = false;
             ResetMenu();

@@ -89,13 +89,14 @@
                                     Background="White"
                                     Margin="5 5 120 5"
                                     CornerRadius="6">
-                                <materialDesign:PackIcon Kind="Search"
+                                <StackPanel>
+                                    <materialDesign:PackIcon Kind="Search"
                                                          Height="23"
                                                          Width="23"
                                                          VerticalAlignment="Center"
                                                          Margin="10 0 0 0"
                                                          Foreground="LightGray"/>
-                                
+                                </StackPanel>                                
                             </Border>
                         </Grid>
 

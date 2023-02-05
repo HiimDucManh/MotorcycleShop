@@ -401,7 +401,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MOTORBIKEMANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="MOTORBIKEMANAGEMENTEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MOTORBIKEMANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETKHUYENMAIs" EntityType="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI" />
           <EntitySet Name="CHITIETSANPHAMs" EntityType="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" />
           <EntitySet Name="HOADONBTs" EntityType="MOTORBIKEMANAGEMENTModel.HOADONBT" />
@@ -823,12 +823,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MOTORBIKEMANAGEMENTModelStoreContainer" CdmEntityContainer="MOTORBIKEMANAGEMENTEntities2">
+        <EntityContainerMapping StorageEntityContainer="MOTORBIKEMANAGEMENTModelStoreContainer" CdmEntityContainer="MOTORBIKEMANAGEMENTEntities">
           <EntitySetMapping Name="CHITIETKHUYENMAIs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI">
               <MappingFragment StoreEntitySet="CHITIETKHUYENMAI">

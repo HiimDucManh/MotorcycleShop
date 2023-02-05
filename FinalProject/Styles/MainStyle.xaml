@@ -57,9 +57,9 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" TargetName="border" Value="Transparent"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
-                            <Setter Property="Fill" TargetName="ico" Value="{DynamicResource PrimaryBlueTextColor}"/>
-                            <Setter Property="Fill" TargetName="ico1" Value="{DynamicResource PrimaryBlueTextColor}"/>
-                            <Setter Property="Fill" TargetName="ico2" Value="{DynamicResource PrimaryBlueTextColor}"/>
+                            <Setter Property="Fill" TargetName="ico" Value="{DynamicResource TextSecundaryColor}"/>
+                            <Setter Property="Fill" TargetName="ico1" Value="{DynamicResource TextSecundaryColor}"/>
+                            <Setter Property="Fill" TargetName="ico2" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Background" TargetName="border" Value="Transparent"/>
@@ -84,7 +84,7 @@
                         <Viewbox Height="20" Width="20" Margin="0 6 0 0" Stretch="Uniform">
                             <Path x:Name="icon"
                                   Data="{DynamicResource bars}" 
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   Margin="0 0 0 0"/>
                         </Viewbox>
                     </Border>
@@ -108,7 +108,7 @@
     <!-- Start: Vertical Menu Style -->
     <Style x:Key="MenuRadioButtonStyle" TargetType="{x:Type RadioButton}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextSecundaryColor}"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="15"/>
@@ -258,12 +258,12 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="btnBorder" Property="Background"
-                                    Value="{DynamicResource PrimaryGrayColor}"/>
+                                    Value="{DynamicResource TextSecundaryColor}"/>
 
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="btnBorder" Property="Background"
-                                    Value="{DynamicResource ActionIconColor}"/>
+                                    Value="{DynamicResource TextSecundaryColor}"/>
 
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -291,8 +291,8 @@
                             Padding="{TemplateBinding Padding}">
                         <Path x:Name="Icon"
                                   Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
-                                  Height="16" Width="auto" Stretch="Uniform"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Height="20" Width="auto" Stretch="Uniform"
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   VerticalAlignment="Center" HorizontalAlignment="Center"  />
 
                     </Border>
@@ -300,6 +300,42 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Icon" Property="Fill"
                                     Value="{DynamicResource PrimaryRedColor}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonIconPrintStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryRedColor}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="btnBorder" CornerRadius="5"
+                            Background="{DynamicResource PrimaryRedColor}"
+                            Width="{TemplateBinding Width}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            Padding="{TemplateBinding Padding}">
+                        <Path x:Name="Icon"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" 
+                                  Height="20" Width="auto" Stretch="Uniform"
+                                  Fill="white" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background"
+                                    Value="{DynamicResource SecundaryRedColor}"/>
 
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -363,7 +399,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -377,7 +413,7 @@
                             SnapsToDevicePixels="True"
                             Padding="{TemplateBinding Padding}">
                         <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                                 FontWeight="{TemplateBinding FontWeight}"
                                                 FontSize="{TemplateBinding FontSize}"/>
 
@@ -390,7 +426,7 @@
                             <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -402,7 +438,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -417,14 +453,14 @@
                             Padding="{TemplateBinding Padding}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                                 FontWeight="{TemplateBinding FontWeight}"
                                                 FontSize="{TemplateBinding FontSize}"/>
 
                             <Path x:Name="icon"
                                   Height="7" Width="auto" Stretch="Uniform"
                                   Data="{DynamicResource sort-down}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   VerticalAlignment="Center" HorizontalAlignment="Left" 
                                   Margin="7 5 0 0"/>
                         </StackPanel>
@@ -442,8 +478,8 @@
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
                             <Setter Property="Data" TargetName="icon" Value="{DynamicResource sort-down}"/>
-                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryGrayColor}"/>
-                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource TextSecundaryColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -496,7 +532,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="btnBorder" Property="Background"
-                                    Value="{DynamicResource PrimaryGrayColor}"/>
+                                    Value="{DynamicResource TextSecundaryColor}"/>
                             <Setter TargetName="txtName2" Property="Visibility"
                                     Value="Collapsed"/>
                             <Setter TargetName="txtName1" Property="Visibility"
@@ -504,7 +540,7 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="btnBorder" Property="Background"
-                                    Value="{DynamicResource ActionIconColor}"/>
+                                    Value="{DynamicResource TextSecundaryColor}"/>
                             <Setter TargetName="txtName2" Property="Visibility"
                                     Value="Collapsed"/>
                             <Setter TargetName="txtName1" Property="Visibility"
@@ -520,7 +556,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -553,7 +589,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" TargetName="btnBorder" Value="{DynamicResource PrimaryRedColor}"/>
-                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -565,14 +601,14 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <TextBlock x:Name="txtName" VerticalAlignment="Center"                                      
-                                  Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                  Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                   FontWeight="{TemplateBinding FontWeight}"
                                   FontSize="{TemplateBinding FontSize}"/>
                     <ControlTemplate.Triggers>
@@ -659,7 +695,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -674,20 +710,20 @@
                             Padding="{TemplateBinding Padding}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                                 FontWeight="{TemplateBinding FontWeight}"
                                                 FontSize="{TemplateBinding FontSize}"/>
                             <Path x:Name="icon1"
-                                  Height="7" Width="auto" Stretch="Uniform"
+                                  Height="auto" Width="7" Stretch="Uniform"
                                   Data="{DynamicResource angles-down}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
-                                  VerticalAlignment="Center" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"
                                   Margin="5 5 10 0"/>
 
                             <Path x:Name="icon2"
                                   Height="7" Width="auto" Stretch="Uniform"
                                   Data="{DynamicResource angles-up}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   VerticalAlignment="Center" 
                                   Margin="5 5 10 0"/>
                         </StackPanel>
@@ -707,8 +743,8 @@
                             <Setter Property="Visibility" TargetName="icon2" Value="Visible"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
-                            <Setter Property="Fill" TargetName="icon1" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource TextSecundaryColor}"/>
+                            <Setter Property="Fill" TargetName="icon1" Value="{DynamicResource TextSecundaryColor}"/>
                             <Setter Property="Fill" TargetName="icon2" Value="{DynamicResource PrimaryRedColor}"/>
                             <Setter Property="Visibility" TargetName="icon1" Value="Visible"/>
                             <Setter Property="Visibility" TargetName="icon2" Value="Collapsed"/>
@@ -723,7 +759,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -740,7 +776,7 @@
                             <Path x:Name="icon"
                                   Height="15" Width="auto" Stretch="Uniform"
                                   Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   VerticalAlignment="Center"/>
                         </StackPanel>
 
@@ -762,7 +798,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -777,14 +813,14 @@
                             Padding="{TemplateBinding Padding}">
                         <StackPanel Orientation="Horizontal">
                             <Path x:Name="icon"
-                                  Height="15" Width="auto" Stretch="Uniform"
+                                  Height="15" Width="15" Stretch="Uniform"
                                   Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
-                                  VerticalAlignment="Center" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"
                                   Margin="5 0 10 0"/>
 
                             <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                                 FontWeight="{TemplateBinding FontWeight}"
                                                 FontSize="{TemplateBinding FontSize}"/>
                         </StackPanel>
@@ -810,7 +846,7 @@
         <Setter Property="Background"
                 Value="Transparent"/>
         <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryGrayColor}" />
+                Value="{DynamicResource TextSecundaryColor}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Template">
@@ -827,12 +863,12 @@
                             <Path x:Name="icon"
                                   Height="15" Width="auto" Stretch="Uniform"
                                   Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
-                                  Fill="{DynamicResource PrimaryGrayColor}" 
+                                  Fill="{DynamicResource TextSecundaryColor}" 
                                   VerticalAlignment="Center" 
                                   Margin="5 0 10 0"/>
                             
                             <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource PrimaryGrayColor}"
+                                                Text="{TemplateBinding Content}" Foreground="{DynamicResource TextSecundaryColor}"
                                                 FontWeight="{TemplateBinding FontWeight}"
                                                 FontSize="{TemplateBinding FontSize}"/>
                             
@@ -850,8 +886,8 @@
                             <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryRedColor}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource PrimaryGrayColor}"/>
-                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter Property="Fill" TargetName="icon" Value="{DynamicResource TextSecundaryColor}"/>
+                            <Setter Property="Foreground" TargetName="txtName" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -927,7 +963,7 @@
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Icon" Property="Data" Value="{StaticResource heart-solid}"/>
-                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryGrayColor}"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource TextSecundaryColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
