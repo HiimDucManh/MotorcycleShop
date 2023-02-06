@@ -1,5 +1,6 @@
 ﻿using FinalProject.Model;
 using FinalProject.View.Customer;
+using FinalProject.View.Staffs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,7 +96,10 @@ namespace FinalProject.View
                 }
                 if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 0)
                 {
-                    
+                    NHANVIEN nhanVien = DataProvider.Ins.DB.NHANVIENs.Where(x => x.TAIKHOANNV == txbUsername.Text).First();
+                    StaffDashboard staff = new StaffDashboard(nhanVien);
+                    staff.Show();
+                    this.Close();
                 }
                 if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 2)
                 {

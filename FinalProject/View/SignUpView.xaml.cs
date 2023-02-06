@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,6 +67,37 @@ namespace FinalProject.View
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+
+        private void registerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var account = DataProvider.Ins.DB.NGUOIDUNGs.Where(x=>x.TAIKHOAN == userName.Text).FirstOrDefault();
+            if (account == null)
+            {
+                if (againtPassword.Password != passwordBox.Password)
+                {
+                    notify.Text = "Password does not match";
+                }
+                else
+                {
+                    var newacc = new NGUOIDUNG() { TAIKHOAN = userName.Text, MATKHAU = passwordBox.Password, LOAIND = 1 };
+                    DataProvider.Ins.DB.NGUOIDUNGs.Add(newacc);
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Success!", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    LoginView login = new LoginView();
+                    login.Show();
+                    this.Close();
+                }
+            }
+            else notify.Text = "Username was already existed";
+        }
+
+        private void signInBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LoginView login = new LoginView();
+            login.Show();
+            this.Close();
         }
     }
 }

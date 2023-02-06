@@ -1,4 +1,6 @@
-﻿using FinalProject.View.Staffs.Pages;
+﻿using FinalProject.Model;
+using FinalProject.View.Customer;
+using FinalProject.View.Staffs.Pages;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System;
@@ -22,10 +24,12 @@ namespace FinalProject.View.Staffs
     /// </summary>
     public partial class StaffDashboard : Window
     {
-        public StaffDashboard()
+        NHANVIEN nhanVien;
+        public StaffDashboard(NHANVIEN nv)
         {
             InitializeComponent();
-            staffPageNavigate.Navigate(new Dashboard());
+            staffPageNavigate.Navigate(new Dashboard(nv));
+            nhanVien = nv;
         }
 
         //Cartesian
@@ -65,12 +69,42 @@ namespace FinalProject.View.Staffs
 
         private void customerBtn_Click(object sender, RoutedEventArgs e)
         {
-            staffPageNavigate.Navigate(new Staff_CustomerPage());
+            staffPageNavigate.Navigate(new Staff_CustomerPage(nhanVien));
         }
 
         private void dashboardBtn_Click(object sender, RoutedEventArgs e)
         {
-            staffPageNavigate.Navigate(new Dashboard());
+            staffPageNavigate.Navigate(new Dashboard(nhanVien));
+        }
+
+        private void productsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            staffPageNavigate.Navigate(new Staff_Products(nhanVien));
+        }
+
+        private void maintenanceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            staffPageNavigate.Navigate(new Staff_Maintenance(nhanVien));
+        }
+
+        private void website_Click(object sender, RoutedEventArgs e)
+        {
+            KHACHHANG khachhang = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == "vuducmanh").First();
+            CustomerWindow wd = new CustomerWindow(khachhang);
+            wd.Show();
+            this.Close();
+        }
+
+        private void ordersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            staffPageNavigate.Navigate(new Staff_Orders(nhanVien));
+        }
+
+        private void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView login = new LoginView();
+            login.Show();
+            this.Close();
         }
     }
 }
