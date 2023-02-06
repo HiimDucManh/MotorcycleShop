@@ -222,7 +222,7 @@
                         </StackPanel>
                     </Border>
 
-                    <StackPanel Orientation="Vertical"
+                    <!--<StackPanel Orientation="Vertical"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="0 15 0 0"
@@ -258,10 +258,10 @@
                             </Button>
                         </StackPanel>
                         
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <StackPanel Orientation="Vertical"
-                                Margin="0 20 0 0"
+                                Margin="0 50 0 0"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center">
 
@@ -281,6 +281,7 @@
                                    FontFamily="Lato"
                                    FontSize="13"
                                    FontWeight="DemiBold"
+                                       x:Name="signUpBtn" PreviewMouseDown="signUpBtn_PreviewMouseDown"
                                    />
                         </StackPanel>
 

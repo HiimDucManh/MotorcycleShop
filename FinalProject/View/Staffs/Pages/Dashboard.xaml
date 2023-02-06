@@ -7,8 +7,10 @@
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="900"
-      Title="Dashboard">
+
+      d:DesignHeight="650" d:DesignWidth="850"
+      Title="Dashboard" Loaded="Page_Loaded">
+
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,7 +33,9 @@
                                FontWeight="Bold"
                                Text="Dashboard"/>
 
-                        <Button Style="{StaticResource MaterialDesignIconButton}"
+
+                        <!--<Button Style="{StaticResource MaterialDesignIconButton}"
+
                                         Height="20"
                                         Width="20"
                                         materialDesign:ButtonAssist.CornerRadius="6"
@@ -48,7 +52,9 @@
                                  Margin="40 0 0 0"
                                  materialDesign:HintAssist.Hint="Search"
                                  DockPanel.Dock="Left" FontFamily="Source Sans Pro"
-                                 />
+
+                                 />-->
+
 
                     </DockPanel>
 
@@ -104,6 +110,9 @@
                                                                       Margin="-6 4 0 4"
                                                                       materialDesign:ShadowAssist.ShadowDepth="Depth1">
                                                 <TextBlock Text="20"
+
+                                                           x:Name="newOrdersTbx"
+
                                                            Foreground="White"
                                                            VerticalAlignment="Center"
                                                            HorizontalAlignment="Center"
@@ -132,8 +141,11 @@
                                                     Foreground="Gray"
                                                     Height="30"
                                                     Width="30"
+
+                                                    x:Name="manageOrderBtn"
                                                     VerticalAlignment="Center"
-                                                    HorizontalAlignment="Right"
+                                                    HorizontalAlignment="Right" Click="manageOrderBtn_Click"
+
                                                     >
                                                 <materialDesign:PackIcon Kind="ChevronRight" 
                                                                          Width="17"
@@ -181,6 +193,9 @@
                                            FontSize="30"
                                            FontWeight="Bold"
                                            VerticalAlignment="Center"
+
+                                           x:Name="totalVerhicles"
+
                                            Margin="10 0 0 0"/>
                             </StackPanel>
 
@@ -210,6 +225,9 @@
                                            FontSize="30"
                                            FontWeight="Bold"
                                            VerticalAlignment="Center"
+
+                                           x:Name="totalOrders"
+
                                            Margin="10 0 0 0"/>
                             </StackPanel>
 
@@ -239,6 +257,9 @@
                                            FontSize="30"
                                            FontWeight="Bold"
                                            VerticalAlignment="Center"
+
+                                           x:Name="totalCustomers"
+
                                            Margin="10 0 0 0"/>
                             </StackPanel>
 
@@ -281,8 +302,13 @@
                                               Background="{x:Null}" 
                                               BorderThickness="0,0,0,0" 
                                               BorderBrush="Gray"
+
+                                              x:Name="ordersSummaryCB" SelectionChanged="ordersSummaryCB_SelectionChanged"
                                           >
-                                        <ComboBoxItem IsSelected="True"
+                                    <ComboBoxItem IsSelected="True"
+                                                      Content="All" />
+                                    <ComboBoxItem IsSelected="False"
+
                                                       Content="Today" />
                                         <ComboBoxItem Content="This month" />
                                         <ComboBoxItem Content="This Year" />
@@ -305,6 +331,9 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBlock Grid.Row="0"
+
+                                               x:Name="onDeliveryTxb"
+
                                                Text="46"
                                                FontSize="30"
                                                FontWeight="Bold"
@@ -331,6 +360,9 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBlock Grid.Row="0"
+
+                                               x:Name="deliveredTxb"
+
                                                Text="46"
                                                FontSize="30"
                                                FontWeight="Bold"
@@ -357,6 +389,9 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBlock Grid.Row="0"
+
+                                               x:Name="canceledTxb"
+
                                                Text="46"
                                                FontSize="30"
                                                FontWeight="Bold"
@@ -392,13 +427,17 @@
                                                FontSize="15"
                                                FontWeight="Bold"
                                                VerticalAlignment="Center"/>
-                                <materialDesign:ColorZone Mode="Custom"
+
+                                <!--<materialDesign:ColorZone Mode="Custom"
+
                                                               Background="White"
                                                               HorizontalAlignment="Right"
                                                               CornerRadius="13"
                                                               Width="110"
                                                               materialDesign:ShadowAssist.ShadowDepth="Depth1">
-                                    <ComboBox materialDesign:ComboBoxAssist.ShowSelectedItem="False"
+
+                                <ComboBox materialDesign:ComboBoxAssist.ShowSelectedItem="False"
+
                                                   DockPanel.Dock="Right"
                                                   Width="90"
                                                   HorizontalAlignment="Center"
@@ -410,13 +449,16 @@
                                                   Background="{x:Null}" 
                                                   BorderThickness="0,0,0,0" 
                                                   BorderBrush="Gray"
+
+                                              x:Name="salesMapCB" SelectionChanged="salesMapCB_SelectionChanged"
                                               >
-                                        <ComboBoxItem IsSelected="True"
-                                                          Content="Today" />
+                                    <ComboBoxItem Content="Today" 
+                                                  IsSelected="True"/>
                                         <ComboBoxItem Content="This month" />
                                         <ComboBoxItem Content="This Year" />
                                     </ComboBox>
-                                </materialDesign:ColorZone>
+                                </materialDesign:ColorZone>-->
+
 
                             </DockPanel>
 
@@ -426,9 +468,14 @@
                     </Grid>
                     <Grid Height="150"
                           Margin="0 15 0 0">
+
+                    <ScrollViewer>
                         <lvc:CartesianChart LegendLocation="None"                                         
                                             Margin="20,0,20,0"  
-                                            Grid.ColumnSpan="5"                                         
+                                            Grid.ColumnSpan="5"  
+                                            x:Name="saleChart"
+                                            Height="200"
+
                                             >
                             <lvc:CartesianChart.DataTooltip>
                                 <lvc:DefaultTooltip Background="Red"
@@ -440,10 +487,15 @@
 
                             <lvc:CartesianChart.AxisX>
                                 <lvc:Axis Foreground="#90a3b2"
-                                          ShowLabels="True"                                            
+
+                                          ShowLabels="True"    
+                                          MinValue="1"
+                                          MaxValue="12"
                                           >
                                     <lvc:Axis.Separator>
                                         <lvc:Separator StrokeThickness="0"
+                                                       
+
                                                        Step="1"/>
                                     </lvc:Axis.Separator>
                                 </lvc:Axis>
@@ -452,8 +504,10 @@
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Foreground="#90a3b2"
                                           ShowLabels="True"
-                                          MinValue="40"
-                                          MaxValue="350"
+
+                                          MinValue="0"
+                                          MaxValue="30000000000"
+
                                           
                                           >
                                     <lvc:Axis.Separator>
@@ -467,8 +521,10 @@
                                 <lvc:LineSeries Fill="Transparent"
                                                 StrokeThickness="3"
                                                 PointGeometrySize="10"
-                                                Title="Total Orders"
-                                                Values="50, 120, 110, 160, 150, 180, 120"
+
+                                                Title="Total Revenue"
+                                                x:Name="lineSeriesChart"                                                
+
                                                 >
                                     <lvc:LineSeries.Stroke>
                                         <LinearGradientBrush>
@@ -480,21 +536,31 @@
                                 </lvc:LineSeries>
                             </lvc:CartesianChart.Series>
                         </lvc:CartesianChart>
+
+                    </ScrollViewer>
+                        
+
                     </Grid>
                 </StackPanel>
             </StackPanel>
 
-            <materialDesign:ColorZone Grid.Column="1"                                      
+
+            <Border Grid.Column="1"                                      
+
                                       CornerRadius="0 0 15 0"
                                       Margin="1 30 1 1"
                                       Height="620"
                                       >
-            <materialDesign:ColorZone.Background>
+
+            <Border.Background>
+
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White" Offset="0.505"/>
                     <GradientStop Color="#FFACCCFC" Offset="1.2"/>
                 </LinearGradientBrush>
-            </materialDesign:ColorZone.Background>
+
+            </Border.Background>
+
                 <StackPanel Margin="20 0 20 0">
                     <DockPanel Margin="0 20 -15 0">
                         <!--<Button Style="{StaticResource MaterialDesignIconButton}"
@@ -551,7 +617,12 @@
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
                             <Border.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="/Images/avt.png"/>
+
+                                <ImageBrush x:Name="avatar"
+                                            Stretch="Uniform" 
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            ImageSource="/Images/avt.png"/>
+
                             </Border.Background>
                         </Border>
                         <Button Style="{StaticResource MaterialDesignIconButton}"
@@ -560,7 +631,10 @@
                                 Foreground="White"
                                 Background="#FFA153EE"
                                 HorizontalAlignment="Right"
-                                Margin="0 70 12 0">
+
+                                Margin="0 70 12 0"
+                                x:Name="changeAvt" Click="changeAvt_Click">
+
                             <materialDesign:PackIcon Kind="Plus"
                                                      Width="9"
                                                      Height="9"/>
@@ -576,7 +650,9 @@
                                FontWeight="Bold"
                                />
 
-                    <TextBlock Text="Staff"
+
+                    <TextBlock Text="Email"
+                               x:Name="userEmail"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Margin="0 5 0 0"
@@ -584,7 +660,18 @@
                                FontWeight="Regular"
                                />
 
-                    <DockPanel Margin="0 25 0 0">
+                <TextBlock Text="Staff"
+
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0 5 0 0"
+                               FontSize="12"
+                               FontWeight="Regular"
+                               />
+
+
+                <DockPanel Margin="0 70 0 0">
+
                         <TextBlock Foreground="Black"
                                    FontSize="13"
                                    FontWeight="Bold"
@@ -593,6 +680,9 @@
                                    />
 
                         <TextBlock Text="29 Jan 2023, Saturday"
+
+                                   x:Name="dateTime"
+
                                    FontSize="10"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Right"/>
@@ -620,6 +710,9 @@
 
                             <TextBlock Text="10,000,000,000"
                                        FontSize="30"
+
+                                       x:Name="totalRevenueTxb"
+
                                        FontWeight="Bold"
                                        HorizontalAlignment="Center"
                                        Margin="0 10 0 0"
@@ -669,6 +762,9 @@
 
                                                 <TextBlock Text="1,000,000"
                                                        Grid.Row="0"
+
+                                                           x:Name="incomeRevenue"
+
                                                        Foreground="#DD2A6BEE"
                                                        FontWeight="SemiBold"
                                                        VerticalAlignment="Center"
@@ -727,6 +823,9 @@
 
                                                 <TextBlock Text="9,000,000"
                                                        Grid.Row="0"
+
+                                                           x:Name="outcomeRevenue"
+
                                                        Foreground="#DDBF38FA"
                                                        FontWeight="SemiBold"
                                                        VerticalAlignment="Center"
@@ -750,15 +849,12 @@
                         </StackPanel>
                     </materialDesign:ColorZone>
 
-                    <Button Style="{StaticResource MaterialDesignIconButton}"
-                            Margin="0 80 0 0"
-                            ToolTip="Log out"
-                            HorizontalAlignment="Right">
-                        <materialDesign:PackIcon Kind="Logout"/>
-                    </Button>
+
+                    
                 </StackPanel>
 
-            </materialDesign:ColorZone>
+            </Border>
+
         
     </Grid>
 </Page>
