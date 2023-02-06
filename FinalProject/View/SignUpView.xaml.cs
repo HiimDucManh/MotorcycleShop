@@ -1,5 +1,6 @@
-﻿using FinalProject.Model;
+using FinalProject.Model;
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,7 @@ namespace FinalProject.View
                 DragMove();
         }
 
+
         private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
             var account = DataProvider.Ins.DB.NGUOIDUNGs.Where(x=>x.TAIKHOAN == userName.Text).FirstOrDefault();
@@ -99,5 +101,6 @@ namespace FinalProject.View
             login.Show();
             this.Close();
         }
+
     }
 }

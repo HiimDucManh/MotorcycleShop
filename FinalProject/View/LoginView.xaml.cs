@@ -97,7 +97,9 @@ namespace FinalProject.View
                 if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 0)
                 {
                     NHANVIEN nhanVien = DataProvider.Ins.DB.NHANVIENs.Where(x => x.TAIKHOANNV == txbUsername.Text).First();
+
                     StaffDashboard staff = new StaffDashboard(nhanVien);
+
                     staff.Show();
                     this.Close();
                 }
@@ -116,11 +118,13 @@ namespace FinalProject.View
             }
         }
 
+
         private void signUpBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SignUpView signUpView = new SignUpView();
             signUpView.Show();
             this.Close();
         }
+
     }
 }

@@ -1,6 +1,8 @@
+
 ﻿using FinalProject.Model;
 using FinalProject.View.Customer;
 using FinalProject.View.Staffs.Pages;
+
 using LiveCharts;
 using LiveCharts.Wpf;
 using System;
@@ -24,12 +26,14 @@ namespace FinalProject.View.Staffs
     /// </summary>
     public partial class StaffDashboard : Window
     {
+
         NHANVIEN nhanVien;
         public StaffDashboard(NHANVIEN nv)
         {
             InitializeComponent();
             staffPageNavigate.Navigate(new Dashboard(nv));
             nhanVien = nv;
+
         }
 
         //Cartesian
@@ -69,11 +73,14 @@ namespace FinalProject.View.Staffs
 
         private void customerBtn_Click(object sender, RoutedEventArgs e)
         {
+
             staffPageNavigate.Navigate(new Staff_CustomerPage(nhanVien));
+
         }
 
         private void dashboardBtn_Click(object sender, RoutedEventArgs e)
         {
+
             staffPageNavigate.Navigate(new Dashboard(nhanVien));
         }
 
@@ -105,6 +112,7 @@ namespace FinalProject.View.Staffs
             LoginView login = new LoginView();
             login.Show();
             this.Close();
+
         }
     }
 }

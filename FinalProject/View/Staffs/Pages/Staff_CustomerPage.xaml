@@ -7,8 +7,10 @@
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
+
       d:DesignHeight="650" d:DesignWidth="850"
       Title="Staff_CustomerPage" Loaded="Page_Loaded"
+
       >
     <Page.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -45,7 +47,9 @@
                                Margin="0 -6"
                                />
                     <materialDesign:Chip Content="James Willock"
+
                                          x:Name="userName"
+
                                          FontWeight="Bold"
                                          DockPanel.Dock="Right"
                                          HorizontalAlignment="Right"
@@ -53,7 +57,9 @@
                                          IconBackground="White">
                         <materialDesign:Chip.Icon>
                             <Image Source="/Images/avt.png" 
+
                                    x:Name="avatar"
+
                                    RenderOptions.BitmapScalingMode="HighQuality"/>
                         </materialDesign:Chip.Icon>
                     </materialDesign:Chip>
@@ -77,8 +83,10 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
+
                     <Border Background="#FFE1E2E4"
                             Margin="30 20 30 0"
+
                             CornerRadius="6">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -91,6 +99,7 @@
                                     Background="White"
                                     Margin="5 5 120 5"
                                     CornerRadius="6">
+
                                 <Grid VerticalAlignment="Center"
                                             >
                                     <Grid.ColumnDefinitions>
@@ -100,11 +109,13 @@
                                     </Grid.ColumnDefinitions>
                                     <materialDesign:PackIcon Kind="Search"
                                                              Grid.Column="0"
+
                                                          Height="23"
                                                          Width="23"
                                                          VerticalAlignment="Center"
                                                          Margin="10 0 0 0"
                                                          Foreground="LightGray"/>
+
                                     <TextBox x:Name="searchBox"
                                              Grid.Column="1"
                                              materialDesign:HintAssist.Hint="Type something"
@@ -253,6 +264,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
+
                 </Grid>
             </Border>
         </Grid>

@@ -1,3 +1,4 @@
+
 ﻿using FinalProject.Model;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -14,21 +15,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+
 using System.Windows.Forms;
+
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using Clipboard = System.Windows.Forms.Clipboard;
 using DataFormats = System.Windows.Forms.DataFormats;
 using DataGrid = System.Windows.Controls.DataGrid;
 using MessageBox = System.Windows.Forms.MessageBox;
 using TextBox = System.Windows.Controls.TextBox;
+
 
 namespace FinalProject.View.Staffs.Pages
 {
@@ -37,6 +43,7 @@ namespace FinalProject.View.Staffs.Pages
     /// </summary>
     public partial class Staff_CustomerPage : Page
     {
+
         NHANVIEN nhanVien;
         public Staff_CustomerPage(NHANVIEN nv)
         {
@@ -184,6 +191,7 @@ namespace FinalProject.View.Staffs.Pages
             KHACHHANG kh = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.MAKH == select.CustomerId).First();
             CustomerDetail customer = new CustomerDetail(kh);
             customer.Show();
+
         }
     }
 }

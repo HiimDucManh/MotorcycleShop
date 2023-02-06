@@ -9,7 +9,9 @@
         mc:Ignorable="d"
         Icon="/Assets/Icons/Logo.ico"
         Title="StaffDashboard" Height="700" Width="1080"
+
         ResizeMode="NoResize"
+
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{x:Null}"
         AllowsTransparency="True"
@@ -56,6 +58,7 @@
                                    Margin="10 0 0 0"/>
                     </WrapPanel>
 
+
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                                 Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
                                 materialDesign:ButtonAssist.CornerRadius="6"
@@ -71,6 +74,7 @@
                                 <TextBlock>Dashboard</TextBlock>
                             </WrapPanel>
                         </Button>
+
 
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
                             Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
@@ -93,9 +97,11 @@
                             materialDesign:ButtonAssist.CornerRadius="6"
                             Width="auto"
                             Height="35"
+
                             x:Name="productsBtn"
                             materialDesign:RippleAssist.Feedback="White"
                             Margin="0 0 0 15" Click="productsBtn_Click">
+
                         <WrapPanel Width="120">
                             <materialDesign:PackIcon Kind="Motorbike" 
                                                      VerticalAlignment="Center"
@@ -109,22 +115,27 @@
                             materialDesign:ButtonAssist.CornerRadius="6"
                             Width="auto"
                             Height="35"
+
                             x:Name="maintenanceBtn"
                             materialDesign:RippleAssist.Feedback="White"
                             Margin="0 0 0 15" Click="maintenanceBtn_Click">
+
                         <WrapPanel Width="120">
                             <materialDesign:PackIcon Kind="ServiceToolbox" 
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 20 0"/>
+
                             <TextBlock>Maintenance</TextBlock>
                         </WrapPanel>
                     </Button>                    
+
 
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
                             Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
                             materialDesign:ButtonAssist.CornerRadius="6"
                             Width="auto"
                             Height="35"
+
                             x:Name="ordersBtn"
                             materialDesign:RippleAssist.Feedback="White"
                             Margin="0 0 0 15" Click="ordersBtn_Click">
@@ -133,6 +144,7 @@
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 20 0"/>
                             <TextBlock>Orders</TextBlock>
+
                         </WrapPanel>
                     </Button>
 
@@ -163,6 +175,7 @@
                                     materialDesign:ButtonAssist.CornerRadius="6"
                                     FontSize="11"
                                     Content="Website"
+
                                     x:Name="website"
                                     Margin="0 20 0 25" Click="website_Click"/>
                         </StackPanel>
@@ -177,6 +190,7 @@
                             HorizontalAlignment="Left" Click="logOut_Click">
                         <materialDesign:PackIcon Kind="Logout"/>
                     </Button>
+
 
                 </StackPanel>
             </materialDesign:ColorZone>
