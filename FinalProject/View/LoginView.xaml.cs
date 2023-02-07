@@ -105,7 +105,10 @@ namespace FinalProject.View
                 }
                 if (nd.MATKHAU == txbPass.Password && nd.LOAIND == 2)
                 {
-                    
+                    AdminWindow admin = new AdminWindow();
+
+                    admin.Show();
+                    this.Close();
                 }
                 else
                 {                    

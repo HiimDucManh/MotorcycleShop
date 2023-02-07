@@ -150,6 +150,7 @@
 
                                              materialDesign:HintAssist.Hint="Password"
 
+
                                              materialDesign:HintAssist.Foreground="Gray"
                                              materialDesign:TextFieldAssist.UnderlineBrush="Gray"
                                              Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
