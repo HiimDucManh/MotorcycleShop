@@ -223,11 +223,11 @@
                                         Header="Name"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
                                         MinWidth="130"/>
-                                <DataGridTextColumn Binding="{Binding Cost}"
+                                <DataGridTextColumn Binding="{Binding Cost, StringFormat=N0}"
                                         Header="Cost"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                                          MinWidth="130"/>
-                                <DataGridTextColumn Binding="{Binding Price}"
+                                <DataGridTextColumn Binding="{Binding Price, StringFormat=N0}"
                                         Header="Price"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                                         MinWidth="130"/>
