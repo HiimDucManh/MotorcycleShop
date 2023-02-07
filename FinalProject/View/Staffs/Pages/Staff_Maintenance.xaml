@@ -235,7 +235,7 @@
                                         Header="Staff ID"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                                         MinWidth="130"/>
-                                <DataGridTextColumn Binding="{Binding Price}"
+                                <DataGridTextColumn Binding="{Binding Price, StringFormat=N0}"
                                         Header="Price"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                                         MinWidth="130"/>
