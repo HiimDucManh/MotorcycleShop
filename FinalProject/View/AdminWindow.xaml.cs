@@ -55,5 +55,11 @@ namespace FinalProject.View
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        private void addStaff_Click(object sender, RoutedEventArgs e)
+        {
+            AddStaff wd = new AddStaff();
+            wd.ShowDialog();
+        }
     }
 }

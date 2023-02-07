@@ -34,8 +34,12 @@ namespace FinalProject.View.Admin
 
         private void userList_Loaded(object sender, RoutedEventArgs e)
         {
-            var uslist = DataProvider.Ins.DB.NGUOIDUNGs;
-            userList.ItemsSource = CreateList(uslist);
+            if (allBtn.IsChecked == true)
+                allBtn_Click(sender, e);
+            else if (customer.IsChecked == true)
+                customer_Click(sender, e);
+            else if (staff.IsChecked == true)
+                staff_Click(sender, e);
         }
 
         public ObservableCollection<UserModel> CreateList(IQueryable<NGUOIDUNG> uslist)
@@ -151,6 +155,19 @@ namespace FinalProject.View.Admin
             NGUOIDUNG ng = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == userModel.Username).First();
             if (MessageBox.Show("Do you want to continue?", "Notification", (MessageBoxButtons)MessageBoxButton.YesNo, (MessageBoxIcon)MessageBoxImage.Question) == DialogResult.Yes)
             {
+                if(ng.LOAIND == 1)
+                {
+                    KHACHHANG kh = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == ng.TAIKHOAN).FirstOrDefault();
+                    if(kh != null)
+                        DataProvider.Ins.DB.KHACHHANGs.Remove(kh);
+                }
+                else if(ng.LOAIND == 0)
+                {
+                    NHANVIEN nv = DataProvider.Ins.DB.NHANVIENs.Where(x => x.TAIKHOANNV == ng.TAIKHOAN).FirstOrDefault();
+                    if(nv!=null)
+                        DataProvider.Ins.DB.NHANVIENs.Remove(nv);
+                }
+
                 DataProvider.Ins.DB.NGUOIDUNGs.Remove(ng);
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Successful delete!", "Notification", (MessageBoxButtons)MessageBoxButton.OK, (MessageBoxIcon)MessageBoxImage.Information);

@@ -52,15 +52,20 @@ namespace FinalProject.View.Admin
             }
             else if(userRole.Text == "1")
             {
-                name.Text = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == username.Text).First().TENKH;
-                var avt = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == username.Text).First();
-                Stream StreamObj = new MemoryStream(avt.IMG);
-                BitmapImage BitObj = new BitmapImage();
-                BitObj.BeginInit();
-                BitObj.StreamSource = StreamObj;
-                BitObj.EndInit();
-                avatar.ImageSource = BitObj;
-                role.Text = "Customer";
+                KHACHHANG kh = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == username.Text).FirstOrDefault();
+                if(kh!=null)
+                {
+                    name.Text = kh.TENKH;
+                    var avt = DataProvider.Ins.DB.KHACHHANGs.Where(x => x.TAIKHOANKH == username.Text).First();
+                    Stream StreamObj = new MemoryStream(avt.IMG);
+                    BitmapImage BitObj = new BitmapImage();
+                    BitObj.BeginInit();
+                    BitObj.StreamSource = StreamObj;
+                    BitObj.EndInit();
+                    avatar.ImageSource = BitObj;
+                    role.Text = "Customer";
+                }    
+                
             }
         }
 
@@ -90,9 +95,9 @@ namespace FinalProject.View.Admin
             NGUOIDUNG ngd = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == username.Text).FirstOrDefault();
             if (ngd != null)
             {
-                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.MATKHAU == nGUOIDUNG.MATKHAU).First().MATKHAU = password.Text;
-                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.LOAIND == nGUOIDUNG.LOAIND).First().LOAIND = Convert.ToInt32(userRole.Text);
-                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.CHEDOND == nGUOIDUNG.CHEDOND).First().CHEDOND = false;
+                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == nGUOIDUNG.TAIKHOAN).First().MATKHAU = password.Text;
+                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == nGUOIDUNG.TAIKHOAN).First().LOAIND = Convert.ToInt32(userRole.Text);
+                DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.TAIKHOAN == nGUOIDUNG.TAIKHOAN).First().CHEDOND = false;
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Successfully Update!", "Notification", (MessageBoxButtons)MessageBoxButton.OK, (MessageBoxIcon)MessageBoxImage.Information);
                 this.Close();

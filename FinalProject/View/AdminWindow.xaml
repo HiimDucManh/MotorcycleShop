@@ -137,10 +137,18 @@
                                     Height="28"
                                     materialDesign:ButtonAssist.CornerRadius="6"
                                     FontSize="11"
+                                    Content="Add Staff"
+                                    x:Name="addStaff"
+                                    Margin="0 20 0 10" Click="addStaff_Click"/>
+                            <Button Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                    Height="28"
+                                    materialDesign:ButtonAssist.CornerRadius="6"
+                                    FontSize="11"
                                     Content="Sign Out"
 
                                     x:Name="signOut"
-                                    Margin="0 20 0 25" Click="signOut_Click"/>
+                                    Margin="0 5 0 25" Click="signOut_Click"/>
                         </StackPanel>
                     </materialDesign:ColorZone>
 

@@ -50,7 +50,7 @@ namespace FinalProject.View.Customer
             khachhang.SDT = tbPhone.Text;
             khachhang.DIACHI = tbAddress.Text;
             khachhang.EMAIL = tbEmail.Text;
-
+            khachhang.NGAYDANGKY = dtStart.SelectedDate;
             DataProvider.Ins.DB.SaveChanges();
             notifier.ShowSuccess("Save Successfully");
         }

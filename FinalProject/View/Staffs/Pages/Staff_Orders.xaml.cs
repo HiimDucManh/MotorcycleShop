@@ -144,20 +144,33 @@ namespace FinalProject.View.Staffs.Pages
 
         private void onDeliveryBtn_Click(object sender, RoutedEventArgs e)
         {
-            var order = DataProvider.Ins.DB.HOADONMHs.Where(x => x.TINHTRANG == "On Delivery");
+            var order = DataProvider.Ins.DB.HOADONMHs.Where(x => x.TINHTRANG == "Paid");
             orderList.ItemsSource = CreateList(order);
         }
 
         private void DeliveredBtn_Click(object sender, RoutedEventArgs e)
         {
-            var order = DataProvider.Ins.DB.HOADONMHs.Where(x => x.TINHTRANG == "Delivered");
+            var order = DataProvider.Ins.DB.HOADONMHs.Where(x => x.TINHTRANG == "Unpaid");
             orderList.ItemsSource = CreateList(order);
         }
 
-        private void cancelBtn_Click(object sender, RoutedEventArgs e)
+       
+
+        private void onDelivery_Click(object sender, RoutedEventArgs e)
         {
-            var order = DataProvider.Ins.DB.HOADONMHs.Where(x => x.TINHTRANG == "Cancel");
-            orderList.ItemsSource = CreateList(order);
+            OrderModel ord = orderList.SelectedItem as OrderModel;
+            DataProvider.Ins.DB.HOADONMHs.Where(x => x.MAHDMH == ord.Id).First().TINHTRANG = "Paid";
+            DataProvider.Ins.DB.SaveChanges();
+            orderList_Loaded(sender, e);
+        }
+
+        private void unpaid_Click(object sender, RoutedEventArgs e)
+        {
+            OrderModel ord = orderList.SelectedItem as OrderModel;
+            DataProvider.Ins.DB.HOADONMHs.Where(x => x.MAHDMH == ord.Id).First().TINHTRANG = "Unpaid";
+            DataProvider.Ins.DB.SaveChanges();
+
+            orderList_Loaded(sender, e);
         }
     }
 }

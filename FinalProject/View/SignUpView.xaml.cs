@@ -98,8 +98,10 @@ namespace FinalProject.View
                         makh = "KH" + (Int32.Parse(ma) + 1);
                     }
 
-                    var kh = new KHACHHANG() { MAKH = makh, TAIKHOANKH = userName.Text };
+                    
+                    var kh = new KHACHHANG() { MAKH = makh, TAIKHOANKH = userName.Text, DOANHSO = 0, SOLUONGSANPHAM = 0 };
                     DataProvider.Ins.DB.KHACHHANGs.Add(kh);
+
                     DataProvider.Ins.DB.SaveChanges();
                     MessageBox.Show("Success!", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
 

@@ -88,17 +88,13 @@
                                      Margin="4"
                                      x:Name="onDeliveryBtn"
                                      IsChecked="False"
-                                     Content="On Delivery" Click="onDeliveryBtn_Click" />
+                                     Content="Paid" Click="onDeliveryBtn_Click" />
                         <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonBottom}"
                                      Margin="4"
                                      x:Name="DeliveredBtn"
                                      IsChecked="False"                                     
-                                     Content="Delivered" Click="DeliveredBtn_Click" />
-                        <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonBottom}"
-                                     Margin="4"
-                                     x:Name="cancelBtn"
-                                     IsChecked="False"                                     
-                                     Content="Cancel" Click="cancelBtn_Click" />
+                                     Content="Unpaid" Click="DeliveredBtn_Click" />
+                        
                     </StackPanel>
 
                     <Border Background="#FFE1E2E4"
@@ -225,14 +221,15 @@
                                   Background="White"
                                   Foreground="Black"
                                   FontFamily="Source Sans Pro" Loaded="orderList_Loaded"
-                                  
+                                  IsReadOnly="True"
                                   >
-                            <!--<DataGrid.ContextMenu>
+                            <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem x:Name="edit" Header="_Edit" Click="edit_Click"></MenuItem>
-                                    <MenuItem x:Name="del" Header="_Delete" Click="del_Click"></MenuItem>
+                                    <MenuItem x:Name="onDelivery" Header="Paid" Click="onDelivery_Click" ></MenuItem>
+                                    <MenuItem x:Name="unpaid" Header="Unpaid" Click="unpaid_Click"></MenuItem>
+                                    
                                 </ContextMenu>
-                            </DataGrid.ContextMenu>-->
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <DataGridTextColumn x:Name="no" Binding="{Binding No}"
                                         Header="No" 

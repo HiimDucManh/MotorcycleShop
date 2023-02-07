@@ -242,6 +242,9 @@
     <Compile Include="View\Staffs\CustomerDetail.xaml.cs">
       <DependentUpon>CustomerDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Staffs\Pages\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Staffs\Pages\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -365,6 +368,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Staffs\CustomerDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Staffs\Pages\AddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
