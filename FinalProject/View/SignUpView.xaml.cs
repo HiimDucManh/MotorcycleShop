@@ -84,6 +84,22 @@ namespace FinalProject.View
                 {
                     var newacc = new NGUOIDUNG() { TAIKHOAN = userName.Text, MATKHAU = passwordBox.Password, LOAIND = 1 };
                     DataProvider.Ins.DB.NGUOIDUNGs.Add(newacc);
+                    string makh;
+                    int v = DataProvider.Ins.DB.KHACHHANGs.Count();
+                    if (v == 0)
+                    {
+                        makh = "KH1";
+                    }
+                    else
+                    {
+                        List<KHACHHANG> listKH = DataProvider.Ins.DB.KHACHHANGs.ToList();
+                        KHACHHANG KH = listKH[v - 1];
+                        string ma = KH.MAKH.Substring(2);
+                        makh = "KH" + (Int32.Parse(ma) + 1);
+                    }
+
+                    var kh = new KHACHHANG() { MAKH = makh, TAIKHOANKH = userName.Text };
+                    DataProvider.Ins.DB.KHACHHANGs.Add(kh);
                     DataProvider.Ins.DB.SaveChanges();
                     MessageBox.Show("Success!", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
 
