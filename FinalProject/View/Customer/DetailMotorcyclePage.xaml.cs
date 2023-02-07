@@ -379,20 +379,21 @@ namespace FinalProject.View.Customer
                 };
                 DataProvider.Ins.DB.HOADONMHs.Add(hdmh);
 
-                if (CTSP.SLTON > 0)
-                {
-                    CTSP.SLTON = CTSP.SLTON - 1;
-                    CTSP.SLBAN = CTSP.SLBAN + 1;
-                    khachhang.DOANHSO = khachhang.DOANHSO + decimal.Parse(tbPrice.Text);
-                    khachhang.SOLUONGSANPHAM = khachhang.SOLUONGSANPHAM + 1;
+                
+            }
+            if (CTSP.SLTON > 0)
+            {
+                CTSP.SLTON = CTSP.SLTON - 1;
+                CTSP.SLBAN = CTSP.SLBAN + 1;
+                khachhang.DOANHSO = khachhang.DOANHSO + decimal.Parse(tbPrice.Text);
+                khachhang.SOLUONGSANPHAM = khachhang.SOLUONGSANPHAM + 1;
 
-                    DataProvider.Ins.DB.SaveChanges();
-                    notifier.ShowSuccess("Order Success");
-                }
-                else
-                {
-                    notifier.ShowError("The product is out of stock");
-                }
+                DataProvider.Ins.DB.SaveChanges();
+                notifier.ShowSuccess("Order Success");
+            }
+            else
+            {
+                notifier.ShowError("The product is out of stock");
             }
         }
 
