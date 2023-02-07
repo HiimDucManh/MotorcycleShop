@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MOTORBIKEMANAGEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MOTORBIKEMANAGEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETKHUYENMAI">
           <Key>
             <PropertyRef Name="MAKM" />
@@ -397,134 +397,62 @@
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MOTORBIKEMANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="MOTORBIKEMANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CHITIETKHUYENMAIs" EntityType="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI" />
-          <EntitySet Name="CHITIETSANPHAMs" EntityType="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" />
-          <EntitySet Name="HOADONBTs" EntityType="MOTORBIKEMANAGEMENTModel.HOADONBT" />
-          <EntitySet Name="HOADONMHs" EntityType="MOTORBIKEMANAGEMENTModel.HOADONMH" />
-          <EntitySet Name="KHACHHANGs" EntityType="MOTORBIKEMANAGEMENTModel.KHACHHANG" />
-          <EntitySet Name="KHUYENMAIs" EntityType="MOTORBIKEMANAGEMENTModel.KHUYENMAI" />
-          <EntitySet Name="LOAISPs" EntityType="MOTORBIKEMANAGEMENTModel.LOAISP" />
-          <EntitySet Name="MAUs" EntityType="MOTORBIKEMANAGEMENTModel.MAU" />
-          <EntitySet Name="NGUOIDUNGs" EntityType="MOTORBIKEMANAGEMENTModel.NGUOIDUNG" />
-          <EntitySet Name="NHANVIENs" EntityType="MOTORBIKEMANAGEMENTModel.NHANVIEN" />
-          <EntitySet Name="SANPHAMs" EntityType="MOTORBIKEMANAGEMENTModel.SANPHAM" />
-          <AssociationSet Name="FK_MAKM_MAKM" Association="MOTORBIKEMANAGEMENTModel.FK_MAKM_MAKM">
-            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
-            <End Role="CHITIETKHUYENMAI" EntitySet="CHITIETKHUYENMAIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MALOAISPKM_MALOAI" Association="MOTORBIKEMANAGEMENTModel.FK_MALOAISPKM_MALOAI">
-            <End Role="LOAISP" EntitySet="LOAISPs" />
-            <End Role="CHITIETKHUYENMAI" EntitySet="CHITIETKHUYENMAIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MAMAUSP" Association="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP">
-            <End Role="MAU" EntitySet="MAUs" />
-            <End Role="CHITIETSANPHAM" EntitySet="CHITIETSANPHAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MASP" Association="MOTORBIKEMANAGEMENTModel.FK_MASP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CHITIETSANPHAM" EntitySet="CHITIETSANPHAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MAKHBT" Association="MOTORBIKEMANAGEMENTModel.FK_MAKHBT">
-            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-            <End Role="HOADONBT" EntitySet="HOADONBTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MALOAISPBT" Association="MOTORBIKEMANAGEMENTModel.FK_MALOAISPBT">
-            <End Role="LOAISP" EntitySet="LOAISPs" />
-            <End Role="HOADONBT" EntitySet="HOADONBTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MANVBT" Association="MOTORBIKEMANAGEMENTModel.FK_MANVBT">
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-            <End Role="HOADONBT" EntitySet="HOADONBTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MAKHMH" Association="MOTORBIKEMANAGEMENTModel.FK_MAKHMH">
-            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-            <End Role="HOADONMH" EntitySet="HOADONMHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MAKM" Association="MOTORBIKEMANAGEMENTModel.FK_MAKM">
-            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
-            <End Role="HOADONMH" EntitySet="HOADONMHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MAMAUSPMH" Association="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH">
-            <End Role="MAU" EntitySet="MAUs" />
-            <End Role="HOADONMH" EntitySet="HOADONMHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MANVMH" Association="MOTORBIKEMANAGEMENTModel.FK_MANVMH">
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-            <End Role="HOADONMH" EntitySet="HOADONMHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MASPMH" Association="MOTORBIKEMANAGEMENTModel.FK_MASPMH">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="HOADONMH" EntitySet="HOADONMHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TAIKHOANKH_TAIKHOAN" Association="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANKH_TAIKHOAN">
-            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
-            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MALOAISP_MALOAI" Association="MOTORBIKEMANAGEMENTModel.FK_MALOAISP_MALOAI">
-            <End Role="LOAISP" EntitySet="LOAISPs" />
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TAIKHOANNV_TAIKHOAN" Association="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANNV_TAIKHOAN">
-            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="CHITIETKHUYENMAI">
           <Key>
             <PropertyRef Name="MAKM" />
             <PropertyRef Name="MALOAISPKM" />
           </Key>
-          <Property Name="MAKM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="MALOAISPKM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAKM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MALOAISPKM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TRANGTHAI" Type="Boolean" />
-          <NavigationProperty Name="KHUYENMAI" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKM_MAKM" FromRole="CHITIETKHUYENMAI" ToRole="KHUYENMAI" />
-          <NavigationProperty Name="LOAISP" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISPKM_MALOAI" FromRole="CHITIETKHUYENMAI" ToRole="LOAISP" />
+          <NavigationProperty Name="KHUYENMAI" Relationship="Self.FK_MAKM_MAKM" FromRole="CHITIETKHUYENMAI" ToRole="KHUYENMAI" />
+          <NavigationProperty Name="LOAISP" Relationship="Self.FK_MALOAISPKM_MALOAI" FromRole="CHITIETKHUYENMAI" ToRole="LOAISP" />
         </EntityType>
         <EntityType Name="CHITIETSANPHAM">
           <Key>
             <PropertyRef Name="MASP" />
             <PropertyRef Name="MAMAUSP" />
           </Key>
-          <Property Name="MASP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="MAMAUSP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MASP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAMAUSP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SLTON" Type="Int32" />
           <Property Name="SLBAN" Type="Int32" />
           <Property Name="GHICHU" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="MAU" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP" FromRole="CHITIETSANPHAM" ToRole="MAU" />
-          <NavigationProperty Name="SANPHAM" Relationship="MOTORBIKEMANAGEMENTModel.FK_MASP" FromRole="CHITIETSANPHAM" ToRole="SANPHAM" />
+          <NavigationProperty Name="MAU" Relationship="Self.FK_MAMAUSP" FromRole="CHITIETSANPHAM" ToRole="MAU" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_MASP" FromRole="CHITIETSANPHAM" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="HOADONBT">
           <Key>
             <PropertyRef Name="MAHDBT" />
           </Key>
-          <Property Name="MAHDBT" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAHDBT" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NGAYHDBT" Type="DateTime" Precision="3" />
           <Property Name="MALOAISPBT" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="MAKHBT" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAKHBT" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MANVBT" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SOTIENPHAITRA" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TINHTRANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="GHICHU" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="KHACHHANG" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHBT" FromRole="HOADONBT" ToRole="KHACHHANG" />
-          <NavigationProperty Name="LOAISP" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISPBT" FromRole="HOADONBT" ToRole="LOAISP" />
-          <NavigationProperty Name="NHANVIEN" Relationship="MOTORBIKEMANAGEMENTModel.FK_MANVBT" FromRole="HOADONBT" ToRole="NHANVIEN" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_MAKHBT" FromRole="HOADONBT" ToRole="KHACHHANG" />
+          <NavigationProperty Name="LOAISP" Relationship="Self.FK_MALOAISPBT" FromRole="HOADONBT" ToRole="LOAISP" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_MANVBT" FromRole="HOADONBT" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="HOADONMH">
           <Key>
             <PropertyRef Name="MAHDMH" />
           </Key>
-          <Property Name="MAHDMH" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAHDMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NGAYHDMH" Type="DateTime" Precision="3" />
           <Property Name="MASPMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MAMAUSPMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="IMGSPMH" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MAKHMH" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAKHMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MANVMH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="LOAITHANHTOAN" Type="Boolean" />
           <Property Name="TONGTIEN" Type="Decimal" Precision="19" Scale="4" />
@@ -532,17 +460,17 @@
           <Property Name="SOTIENKM" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOTIENPHAITRA" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TINHTRANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="KHACHHANG" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHMH" FromRole="HOADONMH" ToRole="KHACHHANG" />
-          <NavigationProperty Name="KHUYENMAI" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKM" FromRole="HOADONMH" ToRole="KHUYENMAI" />
-          <NavigationProperty Name="MAU" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH" FromRole="HOADONMH" ToRole="MAU" />
-          <NavigationProperty Name="NHANVIEN" Relationship="MOTORBIKEMANAGEMENTModel.FK_MANVMH" FromRole="HOADONMH" ToRole="NHANVIEN" />
-          <NavigationProperty Name="SANPHAM" Relationship="MOTORBIKEMANAGEMENTModel.FK_MASPMH" FromRole="HOADONMH" ToRole="SANPHAM" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_MAKHMH" FromRole="HOADONMH" ToRole="KHACHHANG" />
+          <NavigationProperty Name="KHUYENMAI" Relationship="Self.FK_MAKM" FromRole="HOADONMH" ToRole="KHUYENMAI" />
+          <NavigationProperty Name="MAU" Relationship="Self.FK_MAMAUSPMH" FromRole="HOADONMH" ToRole="MAU" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_MANVMH" FromRole="HOADONMH" ToRole="NHANVIEN" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_MASPMH" FromRole="HOADONMH" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAKH" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HOKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TAIKHOANKH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -555,64 +483,64 @@
           <Property Name="DOANHSO" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONGSANPHAM" Type="Int32" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="HOADONBTs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHBT" FromRole="KHACHHANG" ToRole="HOADONBT" />
-          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKHMH" FromRole="KHACHHANG" ToRole="HOADONMH" />
-          <NavigationProperty Name="NGUOIDUNG" Relationship="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANKH_TAIKHOAN" FromRole="KHACHHANG" ToRole="NGUOIDUNG" />
+          <NavigationProperty Name="HOADONBTs" Relationship="Self.FK_MAKHBT" FromRole="KHACHHANG" ToRole="HOADONBT" />
+          <NavigationProperty Name="HOADONMHs" Relationship="Self.FK_MAKHMH" FromRole="KHACHHANG" ToRole="HOADONMH" />
+          <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_TAIKHOANKH_TAIKHOAN" FromRole="KHACHHANG" ToRole="NGUOIDUNG" />
         </EntityType>
         <EntityType Name="KHUYENMAI">
           <Key>
             <PropertyRef Name="MAKM" />
           </Key>
-          <Property Name="MAKM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAKM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENKM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PHANTRAMKM" Type="Double" />
           <Property Name="NGAYBATDAU" Type="DateTime" Precision="3" />
           <Property Name="NGAYKETTHUC" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CHITIETKHUYENMAIs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKM_MAKM" FromRole="KHUYENMAI" ToRole="CHITIETKHUYENMAI" />
-          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAKM" FromRole="KHUYENMAI" ToRole="HOADONMH" />
+          <NavigationProperty Name="CHITIETKHUYENMAIs" Relationship="Self.FK_MAKM_MAKM" FromRole="KHUYENMAI" ToRole="CHITIETKHUYENMAI" />
+          <NavigationProperty Name="HOADONMHs" Relationship="Self.FK_MAKM" FromRole="KHUYENMAI" ToRole="HOADONMH" />
         </EntityType>
         <EntityType Name="LOAISP">
           <Key>
             <PropertyRef Name="MALOAI" />
           </Key>
-          <Property Name="MALOAI" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MALOAI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENLOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IMGDV1" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IMGDV2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="CHITIETKHUYENMAIs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISPKM_MALOAI" FromRole="LOAISP" ToRole="CHITIETKHUYENMAI" />
-          <NavigationProperty Name="HOADONBTs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISPBT" FromRole="LOAISP" ToRole="HOADONBT" />
-          <NavigationProperty Name="SANPHAMs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISP_MALOAI" FromRole="LOAISP" ToRole="SANPHAM" />
+          <NavigationProperty Name="CHITIETKHUYENMAIs" Relationship="Self.FK_MALOAISPKM_MALOAI" FromRole="LOAISP" ToRole="CHITIETKHUYENMAI" />
+          <NavigationProperty Name="HOADONBTs" Relationship="Self.FK_MALOAISPBT" FromRole="LOAISP" ToRole="HOADONBT" />
+          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_MALOAISP_MALOAI" FromRole="LOAISP" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="MAU">
           <Key>
             <PropertyRef Name="MAMAU" />
           </Key>
-          <Property Name="MAMAU" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MAMAU" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENMAU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="CHITIETSANPHAMs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSP" FromRole="MAU" ToRole="CHITIETSANPHAM" />
-          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MAMAUSPMH" FromRole="MAU" ToRole="HOADONMH" />
+          <NavigationProperty Name="CHITIETSANPHAMs" Relationship="Self.FK_MAMAUSP" FromRole="MAU" ToRole="CHITIETSANPHAM" />
+          <NavigationProperty Name="HOADONMHs" Relationship="Self.FK_MAMAUSPMH" FromRole="MAU" ToRole="HOADONMH" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
             <PropertyRef Name="TAIKHOAN" />
           </Key>
-          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MATKHAU" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TAIKHOAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MATKHAU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LOAIND" Type="Int32" Nullable="false" />
           <Property Name="CHEDOND" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="KHACHHANGs" Relationship="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANKH_TAIKHOAN" FromRole="NGUOIDUNG" ToRole="KHACHHANG" />
-          <NavigationProperty Name="NHANVIENs" Relationship="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANNV_TAIKHOAN" FromRole="NGUOIDUNG" ToRole="NHANVIEN" />
+          <NavigationProperty Name="KHACHHANGs" Relationship="Self.FK_TAIKHOANKH_TAIKHOAN" FromRole="NGUOIDUNG" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_TAIKHOANNV_TAIKHOAN" FromRole="NGUOIDUNG" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
             <PropertyRef Name="MANV" />
           </Key>
-          <Property Name="MANV" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MANV" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENNV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HONV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TAIKHOANNV" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TAIKHOANNV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
           <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -621,16 +549,16 @@
           <Property Name="NGAYVAOLAM" Type="DateTime" Precision="0" />
           <Property Name="LUONG" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="HOADONBTs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MANVBT" FromRole="NHANVIEN" ToRole="HOADONBT" />
-          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MANVMH" FromRole="NHANVIEN" ToRole="HOADONMH" />
-          <NavigationProperty Name="NGUOIDUNG" Relationship="MOTORBIKEMANAGEMENTModel.FK_TAIKHOANNV_TAIKHOAN" FromRole="NHANVIEN" ToRole="NGUOIDUNG" />
+          <NavigationProperty Name="HOADONBTs" Relationship="Self.FK_MANVBT" FromRole="NHANVIEN" ToRole="HOADONBT" />
+          <NavigationProperty Name="HOADONMHs" Relationship="Self.FK_MANVMH" FromRole="NHANVIEN" ToRole="HOADONMH" />
+          <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_TAIKHOANNV_TAIKHOAN" FromRole="NHANVIEN" ToRole="NGUOIDUNG" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="TENSP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MASP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GIAGOC" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="GIABAN" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="CONGSUAT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -639,13 +567,13 @@
           <Property Name="TRONGLUONG" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="GHICHU" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="MALOAISP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CHITIETSANPHAMs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MASP" FromRole="SANPHAM" ToRole="CHITIETSANPHAM" />
-          <NavigationProperty Name="HOADONMHs" Relationship="MOTORBIKEMANAGEMENTModel.FK_MASPMH" FromRole="SANPHAM" ToRole="HOADONMH" />
-          <NavigationProperty Name="LOAISP" Relationship="MOTORBIKEMANAGEMENTModel.FK_MALOAISP_MALOAI" FromRole="SANPHAM" ToRole="LOAISP" />
+          <NavigationProperty Name="CHITIETSANPHAMs" Relationship="Self.FK_MASP" FromRole="SANPHAM" ToRole="CHITIETSANPHAM" />
+          <NavigationProperty Name="HOADONMHs" Relationship="Self.FK_MASPMH" FromRole="SANPHAM" ToRole="HOADONMH" />
+          <NavigationProperty Name="LOAISP" Relationship="Self.FK_MALOAISP_MALOAI" FromRole="SANPHAM" ToRole="LOAISP" />
         </EntityType>
         <Association Name="FK_MAKM_MAKM">
-          <End Type="MOTORBIKEMANAGEMENTModel.KHUYENMAI" Role="KHUYENMAI" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI" Role="CHITIETKHUYENMAI" Multiplicity="*" />
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="1" />
+          <End Role="CHITIETKHUYENMAI" Type="Self.CHITIETKHUYENMAI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHUYENMAI">
               <PropertyRef Name="MAKM" />
@@ -656,8 +584,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MALOAISPKM_MALOAI">
-          <End Type="MOTORBIKEMANAGEMENTModel.LOAISP" Role="LOAISP" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI" Role="CHITIETKHUYENMAI" Multiplicity="*" />
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="1" />
+          <End Role="CHITIETKHUYENMAI" Type="Self.CHITIETKHUYENMAI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAISP">
               <PropertyRef Name="MALOAI" />
@@ -668,8 +596,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MAMAUSP">
-          <End Type="MOTORBIKEMANAGEMENTModel.MAU" Role="MAU" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" Role="CHITIETSANPHAM" Multiplicity="*" />
+          <End Role="MAU" Type="Self.MAU" Multiplicity="1" />
+          <End Role="CHITIETSANPHAM" Type="Self.CHITIETSANPHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MAU">
               <PropertyRef Name="MAMAU" />
@@ -680,8 +608,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MASP">
-          <End Type="MOTORBIKEMANAGEMENTModel.SANPHAM" Role="SANPHAM" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM" Role="CHITIETSANPHAM" Multiplicity="*" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="CHITIETSANPHAM" Type="Self.CHITIETSANPHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MASP" />
@@ -692,8 +620,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MAKHBT">
-          <End Type="MOTORBIKEMANAGEMENTModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONBT" Role="HOADONBT" Multiplicity="*" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="HOADONBT" Type="Self.HOADONBT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHACHHANG">
               <PropertyRef Name="MAKH" />
@@ -704,8 +632,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MALOAISPBT">
-          <End Type="MOTORBIKEMANAGEMENTModel.LOAISP" Role="LOAISP" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONBT" Role="HOADONBT" Multiplicity="*" />
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+          <End Role="HOADONBT" Type="Self.HOADONBT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAISP">
               <PropertyRef Name="MALOAI" />
@@ -716,8 +644,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MANVBT">
-          <End Type="MOTORBIKEMANAGEMENTModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONBT" Role="HOADONBT" Multiplicity="*" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="HOADONBT" Type="Self.HOADONBT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHANVIEN">
               <PropertyRef Name="MANV" />
@@ -728,8 +656,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MAKHMH">
-          <End Type="MOTORBIKEMANAGEMENTModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHACHHANG">
               <PropertyRef Name="MAKH" />
@@ -740,8 +668,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MAKM">
-          <End Type="MOTORBIKEMANAGEMENTModel.KHUYENMAI" Role="KHUYENMAI" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHUYENMAI">
               <PropertyRef Name="MAKM" />
@@ -752,8 +680,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MAMAUSPMH">
-          <End Type="MOTORBIKEMANAGEMENTModel.MAU" Role="MAU" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <End Role="MAU" Type="Self.MAU" Multiplicity="0..1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MAU">
               <PropertyRef Name="MAMAU" />
@@ -764,8 +692,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MANVMH">
-          <End Type="MOTORBIKEMANAGEMENTModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHANVIEN">
               <PropertyRef Name="MANV" />
@@ -776,8 +704,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MASPMH">
-          <End Type="MOTORBIKEMANAGEMENTModel.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.HOADONMH" Role="HOADONMH" Multiplicity="*" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
+          <End Role="HOADONMH" Type="Self.HOADONMH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MASP" />
@@ -788,8 +716,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TAIKHOANKH_TAIKHOAN">
-          <End Type="MOTORBIKEMANAGEMENTModel.NGUOIDUNG" Role="NGUOIDUNG" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.KHACHHANG" Role="KHACHHANG" Multiplicity="*" />
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="0..1" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NGUOIDUNG">
               <PropertyRef Name="TAIKHOAN" />
@@ -800,8 +728,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MALOAISP_MALOAI">
-          <End Type="MOTORBIKEMANAGEMENTModel.LOAISP" Role="LOAISP" Multiplicity="0..1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.SANPHAM" Role="SANPHAM" Multiplicity="*" />
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAISP">
               <PropertyRef Name="MALOAI" />
@@ -812,8 +740,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TAIKHOANNV_TAIKHOAN">
-          <End Type="MOTORBIKEMANAGEMENTModel.NGUOIDUNG" Role="NGUOIDUNG" Multiplicity="1" />
-          <End Type="MOTORBIKEMANAGEMENTModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NGUOIDUNG">
               <PropertyRef Name="TAIKHOAN" />
@@ -823,157 +751,230 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="MOTORBIKEMANAGEMENTEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHITIETKHUYENMAIs" EntityType="Self.CHITIETKHUYENMAI" />
+          <EntitySet Name="CHITIETSANPHAMs" EntityType="Self.CHITIETSANPHAM" />
+          <EntitySet Name="HOADONBTs" EntityType="Self.HOADONBT" />
+          <EntitySet Name="HOADONMHs" EntityType="Self.HOADONMH" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
+          <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
+          <EntitySet Name="MAUs" EntityType="Self.MAU" />
+          <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <AssociationSet Name="FK_MAKM_MAKM" Association="Self.FK_MAKM_MAKM">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+            <End Role="CHITIETKHUYENMAI" EntitySet="CHITIETKHUYENMAIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MALOAISPKM_MALOAI" Association="Self.FK_MALOAISPKM_MALOAI">
+            <End Role="LOAISP" EntitySet="LOAISPs" />
+            <End Role="CHITIETKHUYENMAI" EntitySet="CHITIETKHUYENMAIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAMAUSP" Association="Self.FK_MAMAUSP">
+            <End Role="MAU" EntitySet="MAUs" />
+            <End Role="CHITIETSANPHAM" EntitySet="CHITIETSANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MASP" Association="Self.FK_MASP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CHITIETSANPHAM" EntitySet="CHITIETSANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAKHBT" Association="Self.FK_MAKHBT">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="HOADONBT" EntitySet="HOADONBTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MALOAISPBT" Association="Self.FK_MALOAISPBT">
+            <End Role="LOAISP" EntitySet="LOAISPs" />
+            <End Role="HOADONBT" EntitySet="HOADONBTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANVBT" Association="Self.FK_MANVBT">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="HOADONBT" EntitySet="HOADONBTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAKHMH" Association="Self.FK_MAKHMH">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAKM" Association="Self.FK_MAKM">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAMAUSPMH" Association="Self.FK_MAMAUSPMH">
+            <End Role="MAU" EntitySet="MAUs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANVMH" Association="Self.FK_MANVMH">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MASPMH" Association="Self.FK_MASPMH">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="HOADONMH" EntitySet="HOADONMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAIKHOANKH_TAIKHOAN" Association="Self.FK_TAIKHOANKH_TAIKHOAN">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MALOAISP_MALOAI" Association="Self.FK_MALOAISP_MALOAI">
+            <End Role="LOAISP" EntitySet="LOAISPs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAIKHOANNV_TAIKHOAN" Association="Self.FK_TAIKHOANNV_TAIKHOAN">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MOTORBIKEMANAGEMENTModelStoreContainer" CdmEntityContainer="MOTORBIKEMANAGEMENTEntities">
+        <EntityContainerMapping StorageEntityContainer="MOTORBIKEMANAGEMENTModelStoreContainer" CdmEntityContainer="MOTORBIKEMANAGEMENTEntities1">
           <EntitySetMapping Name="CHITIETKHUYENMAIs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.CHITIETKHUYENMAI">
               <MappingFragment StoreEntitySet="CHITIETKHUYENMAI">
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-                <ScalarProperty Name="MALOAISPKM" ColumnName="MALOAISPKM" />
                 <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+                <ScalarProperty Name="MALOAISPKM" ColumnName="MALOAISPKM" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHITIETSANPHAMs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.CHITIETSANPHAM">
               <MappingFragment StoreEntitySet="CHITIETSANPHAM">
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="SLBAN" ColumnName="SLBAN" />
-                <ScalarProperty Name="SLTON" ColumnName="SLTON" />
-                <ScalarProperty Name="MAMAUSP" ColumnName="MAMAUSP" />
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
+                <ScalarProperty Name="MAMAUSP" ColumnName="MAMAUSP" />
+                <ScalarProperty Name="SLTON" ColumnName="SLTON" />
+                <ScalarProperty Name="SLBAN" ColumnName="SLBAN" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOADONBTs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.HOADONBT">
               <MappingFragment StoreEntitySet="HOADONBT">
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
-                <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
-                <ScalarProperty Name="MANVBT" ColumnName="MANVBT" />
-                <ScalarProperty Name="MAKHBT" ColumnName="MAKHBT" />
-                <ScalarProperty Name="MALOAISPBT" ColumnName="MALOAISPBT" />
-                <ScalarProperty Name="NGAYHDBT" ColumnName="NGAYHDBT" />
                 <ScalarProperty Name="MAHDBT" ColumnName="MAHDBT" />
+                <ScalarProperty Name="NGAYHDBT" ColumnName="NGAYHDBT" />
+                <ScalarProperty Name="MALOAISPBT" ColumnName="MALOAISPBT" />
+                <ScalarProperty Name="MAKHBT" ColumnName="MAKHBT" />
+                <ScalarProperty Name="MANVBT" ColumnName="MANVBT" />
+                <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOADONMHs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.HOADONMH">
               <MappingFragment StoreEntitySet="HOADONMH">
-                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
-                <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
-                <ScalarProperty Name="SOTIENKM" ColumnName="SOTIENKM" />
-                <ScalarProperty Name="MAKM" ColumnName="MAKM" />
-                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-                <ScalarProperty Name="LOAITHANHTOAN" ColumnName="LOAITHANHTOAN" />
-                <ScalarProperty Name="MANVMH" ColumnName="MANVMH" />
-                <ScalarProperty Name="MAKHMH" ColumnName="MAKHMH" />
-                <ScalarProperty Name="IMGSPMH" ColumnName="IMGSPMH" />
-                <ScalarProperty Name="MAMAUSPMH" ColumnName="MAMAUSPMH" />
-                <ScalarProperty Name="MASPMH" ColumnName="MASPMH" />
-                <ScalarProperty Name="NGAYHDMH" ColumnName="NGAYHDMH" />
                 <ScalarProperty Name="MAHDMH" ColumnName="MAHDMH" />
+                <ScalarProperty Name="NGAYHDMH" ColumnName="NGAYHDMH" />
+                <ScalarProperty Name="MASPMH" ColumnName="MASPMH" />
+                <ScalarProperty Name="MAMAUSPMH" ColumnName="MAMAUSPMH" />
+                <ScalarProperty Name="IMGSPMH" ColumnName="IMGSPMH" />
+                <ScalarProperty Name="MAKHMH" ColumnName="MAKHMH" />
+                <ScalarProperty Name="MANVMH" ColumnName="MANVMH" />
+                <ScalarProperty Name="LOAITHANHTOAN" ColumnName="LOAITHANHTOAN" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+                <ScalarProperty Name="SOTIENKM" ColumnName="SOTIENKM" />
+                <ScalarProperty Name="SOTIENPHAITRA" ColumnName="SOTIENPHAITRA" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="SOLUONGSANPHAM" ColumnName="SOLUONGSANPHAM" />
-                <ScalarProperty Name="DOANHSO" ColumnName="DOANHSO" />
-                <ScalarProperty Name="NGAYDANGKY" ColumnName="NGAYDANGKY" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
-                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
-                <ScalarProperty Name="TAIKHOANKH" ColumnName="TAIKHOANKH" />
-                <ScalarProperty Name="HOKH" ColumnName="HOKH" />
-                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="HOKH" ColumnName="HOKH" />
+                <ScalarProperty Name="TAIKHOANKH" ColumnName="TAIKHOANKH" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="NGAYDANGKY" ColumnName="NGAYDANGKY" />
+                <ScalarProperty Name="DOANHSO" ColumnName="DOANHSO" />
+                <ScalarProperty Name="SOLUONGSANPHAM" ColumnName="SOLUONGSANPHAM" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHUYENMAIs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.KHUYENMAI">
               <MappingFragment StoreEntitySet="KHUYENMAI">
-                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
-                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
-                <ScalarProperty Name="PHANTRAMKM" ColumnName="PHANTRAMKM" />
-                <ScalarProperty Name="TENKM" ColumnName="TENKM" />
                 <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+                <ScalarProperty Name="TENKM" ColumnName="TENKM" />
+                <ScalarProperty Name="PHANTRAMKM" ColumnName="PHANTRAMKM" />
+                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOAISPs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.LOAISP">
               <MappingFragment StoreEntitySet="LOAISP">
-                <ScalarProperty Name="IMGDV2" ColumnName="IMGDV2" />
-                <ScalarProperty Name="IMGDV1" ColumnName="IMGDV1" />
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
                 <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="IMGDV1" ColumnName="IMGDV1" />
+                <ScalarProperty Name="IMGDV2" ColumnName="IMGDV2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAUs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.MAU">
               <MappingFragment StoreEntitySet="MAU">
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="TENMAU" ColumnName="TENMAU" />
                 <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
+                <ScalarProperty Name="TENMAU" ColumnName="TENMAU" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NGUOIDUNGs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.NGUOIDUNG">
               <MappingFragment StoreEntitySet="NGUOIDUNG">
-                <ScalarProperty Name="CHEDOND" ColumnName="CHEDOND" />
-                <ScalarProperty Name="LOAIND" ColumnName="LOAIND" />
-                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
                 <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="LOAIND" ColumnName="LOAIND" />
+                <ScalarProperty Name="CHEDOND" ColumnName="CHEDOND" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHANVIENs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.NHANVIEN">
               <MappingFragment StoreEntitySet="NHANVIEN">
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="LUONG" ColumnName="LUONG" />
-                <ScalarProperty Name="NGAYVAOLAM" ColumnName="NGAYVAOLAM" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
-                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
-                <ScalarProperty Name="TAIKHOANNV" ColumnName="TAIKHOANNV" />
-                <ScalarProperty Name="HONV" ColumnName="HONV" />
-                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="HONV" ColumnName="HONV" />
+                <ScalarProperty Name="TAIKHOANNV" ColumnName="TAIKHOANNV" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="NGAYVAOLAM" ColumnName="NGAYVAOLAM" />
+                <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SANPHAMs">
             <EntityTypeMapping TypeName="MOTORBIKEMANAGEMENTModel.SANPHAM">
               <MappingFragment StoreEntitySet="SANPHAM">
-                <ScalarProperty Name="MALOAISP" ColumnName="MALOAISP" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TRONGLUONG" ColumnName="TRONGLUONG" />
-                <ScalarProperty Name="DUNGTICH" ColumnName="DUNGTICH" />
-                <ScalarProperty Name="MOMEN" ColumnName="MOMEN" />
-                <ScalarProperty Name="CONGSUAT" ColumnName="CONGSUAT" />
-                <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
-                <ScalarProperty Name="GIAGOC" ColumnName="GIAGOC" />
-                <ScalarProperty Name="TENSP" ColumnName="TENSP" />
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
+                <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+                <ScalarProperty Name="GIAGOC" ColumnName="GIAGOC" />
+                <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+                <ScalarProperty Name="CONGSUAT" ColumnName="CONGSUAT" />
+                <ScalarProperty Name="MOMEN" ColumnName="MOMEN" />
+                <ScalarProperty Name="DUNGTICH" ColumnName="DUNGTICH" />
+                <ScalarProperty Name="TRONGLUONG" ColumnName="TRONGLUONG" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="MALOAISP" ColumnName="MALOAISP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
