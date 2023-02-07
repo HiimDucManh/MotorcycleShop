@@ -150,7 +150,6 @@
 
                                              materialDesign:HintAssist.Hint="Password"
 
-                                             materialDesign:HintAssist.Hint="Floating Password"
 
                                              materialDesign:HintAssist.Foreground="Gray"
                                              materialDesign:TextFieldAssist.UnderlineBrush="Gray"

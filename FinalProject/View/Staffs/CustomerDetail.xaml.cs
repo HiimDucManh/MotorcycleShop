@@ -64,5 +64,10 @@ namespace FinalProject.View.Staffs
 
             registrationDate.Text = khachHang.NGAYDANGKY.Value.Date.ToString();
         }
+
+        private void firstName_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
